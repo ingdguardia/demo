@@ -1,6 +1,8 @@
 package com.example;
 
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterSuite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,7 +19,8 @@ public class AppTest2 {
         WebDriver driver = new ChromeDriver(options);
         driver.get("https://telebajocero.backend.thinkindot.com/backend/");
         System.out.println("TEST 2");
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         driver.quit();
     }
+
 }

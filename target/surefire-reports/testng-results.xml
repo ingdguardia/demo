@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-27T15:33:25 ART" name="Suite1" finished-at="2023-06-27T15:33:31 ART" duration-ms="6299">
+  <suite started-at="2023-06-27T16:22:09 ART" name="Suite1" finished-at="2023-06-27T16:22:17 ART" duration-ms="7907">
     <groups>
     </groups>
-    <test started-at="2023-06-27T15:33:25 ART" name="Test" finished-at="2023-06-27T15:33:31 ART" duration-ms="6299">
-      <class name="com.example.AppTest">
-        <test-method signature="testApp()[pri:0, instance:com.example.AppTest@13e39c73]" started-at="2023-06-27T15:33:25 ART" name="testApp" finished-at="2023-06-27T15:33:31 ART" duration-ms="6282" status="PASS">
+    <test started-at="2023-06-27T16:22:09 ART" name="Test" finished-at="2023-06-27T16:22:17 ART" duration-ms="7907">
+      <class name="com.example.AppTest2">
+        <test-method signature="testApp2()[pri:0, instance:com.example.AppTest2@13e39c73]" started-at="2023-06-27T16:22:10 ART" name="testApp2" finished-at="2023-06-27T16:22:17 ART" duration-ms="7890" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testApp -->
-      </class> <!-- com.example.AppTest -->
+        </test-method> <!-- testApp2 -->
+      </class> <!-- com.example.AppTest2 -->
     </test> <!-- Test -->
   </suite> <!-- Suite1 -->
 </testng-results>
