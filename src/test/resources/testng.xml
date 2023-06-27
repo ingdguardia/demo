@@ -3,6 +3,12 @@
 <suite name="Suite1" verbose="1">
   <test name="Test">
     <classes>
+      <class name="com.example.AppTest" />
+    </classes>
+  </test>
+
+  <test name="Test2">
+    <classes>
       <class name="com.example.AppTest2" />
     </classes>
   </test>
