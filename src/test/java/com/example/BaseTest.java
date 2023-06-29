@@ -2,6 +2,9 @@ package com.example;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.beust.jcommander.Parameter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,23 +12,25 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AppTest2 {
+public class BaseTest {
     String urlLogin = "https://telebajocero.backend.thinkindot.com/backend/";
     String urlAdminNotas = "https://telebajocero.backend.thinkindot.com/backend/administrator/notas";
 
+    @Parameter
     @Test
-    public void testApp2() throws InterruptedException {
+    public void testApp2(String url) throws InterruptedException {
         System.out.println("TEST 2");
+        System.out.println("URL EXTRAIDA DE JENKINS: " + url);
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
-        driver.get("https://telebajocero.backend.thinkindot.com/backend/");
+        driver.get(url);
         Assert.assertEquals(urlLogin, driver.getCurrentUrl());
         driver.findElement(By.id("usuario")).sendKeys("dguardia");
         driver.findElement(By.id("password")).sendKeys("dguardia");
         driver.findElement(By.xpath("//a[text()='Ingresar']")).click();
-        Assert.assertEquals(urlAdminNotas, driver.getCurrentUrl());
+        Assert.assertEquals(url + "administrator/notas", driver.getCurrentUrl());
         System.out.println("TEST 2 PASSED");
         driver.quit();
     }
