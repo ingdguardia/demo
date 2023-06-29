@@ -7,14 +7,14 @@
   <test name="Test">
     <parameter name="url" value=""></parameter>
     <classes>
-      <class name="com.example.appTest" />
+      <class name="com.example.AppTest" />
     </classes>
   </test>
 
   <test name="Test2">
     <parameter name="url" value=""></parameter>
     <classes>
-      <class name="com.example.baseTest" />
+      <class name="com.example.BaseTest" />
     </classes>
   </test>
 

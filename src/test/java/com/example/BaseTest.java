@@ -2,9 +2,7 @@ package com.example;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.beust.jcommander.Parameter;
-
+import org.testng.annotations.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,7 +14,7 @@ public class BaseTest {
     String urlLogin = "https://telebajocero.backend.thinkindot.com/backend/";
     String urlAdminNotas = "https://telebajocero.backend.thinkindot.com/backend/administrator/notas";
 
-    @Parameter
+    @Parameters({ "url" })
     @Test
     public void testApp2(String url) throws InterruptedException {
         System.out.println("TEST 2");
