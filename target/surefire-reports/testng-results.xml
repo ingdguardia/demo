@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-29T17:02:28 ART" name="Suite1" finished-at="2023-06-29T17:02:35 ART" duration-ms="6662">
+  <suite started-at="2023-06-29T17:16:42 ART" name="Suite1" finished-at="2023-06-29T17:16:43 ART" duration-ms="1446">
     <groups>
     </groups>
-    <test started-at="2023-06-29T17:02:28 ART" name="Test" finished-at="2023-06-29T17:02:34 ART" duration-ms="5863">
-      <class name="com.example.AppTest">
-        <test-method signature="testApp()[pri:0, instance:com.example.AppTest@6a400542]" started-at="2023-06-29T17:02:28 ART" name="testApp" finished-at="2023-06-29T17:02:34 ART" duration-ms="5848" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testApp -->
-      </class> <!-- com.example.AppTest -->
-    </test> <!-- Test -->
-    <test started-at="2023-06-29T17:02:34 ART" name="Test2" finished-at="2023-06-29T17:02:35 ART" duration-ms="736">
+    <test started-at="2023-06-29T17:16:42 ART" name="Test2" finished-at="2023-06-29T17:16:43 ART" duration-ms="1446">
       <class name="com.example.BaseTest">
-        <test-method signature="testApp2(java.lang.String)[pri:0, instance:com.example.BaseTest@dbf57b3]" started-at="2023-06-29T17:02:34 ART" name="testApp2" finished-at="2023-06-29T17:02:35 ART" duration-ms="732" status="FAIL">
+        <test-method signature="testApp2(java.lang.String)[pri:0, instance:com.example.BaseTest@63355449]" started-at="2023-06-29T17:16:42 ART" name="testApp2" finished-at="2023-06-29T17:16:43 ART" duration-ms="1428" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -30,9 +22,9 @@
 Build info: version: '4.5.0', revision: 'fe167b119a'
 System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '13.4.1', java.version: '20.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [98e3f3f7dcaa060aee84016687cdcdcf, get {url=}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.198, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/gv/n79tv5gs259...}, goog:chromeOptions: {debuggerAddress: localhost:57807}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:57807/devtoo..., se:cdpVersion: 114.0.5735.198, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 98e3f3f7dcaa060aee84016687cdcdcf]]>
+Command: [a1efcb88bddfaa64e312ecab35f2156d, get {url=}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.198, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/gv/n79tv5gs259...}, goog:chromeOptions: {debuggerAddress: localhost:58114}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:58114/devtoo..., se:cdpVersion: 114.0.5735.198, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a1efcb88bddfaa64e312ecab35f2156d]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.InvalidArgumentException: invalid argument
@@ -40,9 +32,9 @@ Session ID: 98e3f3f7dcaa060aee84016687cdcdcf]]>
 Build info: version: '4.5.0', revision: 'fe167b119a'
 System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '13.4.1', java.version: '20.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [98e3f3f7dcaa060aee84016687cdcdcf, get {url=}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.198, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/gv/n79tv5gs259...}, goog:chromeOptions: {debuggerAddress: localhost:57807}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:57807/devtoo..., se:cdpVersion: 114.0.5735.198, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 98e3f3f7dcaa060aee84016687cdcdcf
+Command: [a1efcb88bddfaa64e312ecab35f2156d, get {url=}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.198, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/gv/n79tv5gs259...}, goog:chromeOptions: {debuggerAddress: localhost:58114}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:58114/devtoo..., se:cdpVersion: 114.0.5735.198, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a1efcb88bddfaa64e312ecab35f2156d
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)

@@ -4,14 +4,15 @@
 
   <!--<parameter
   name="testType" value=""></parameter>-->
-  <test name="Test">
+  <test name="Test" enabled="false">
     <parameter name="url" value=""></parameter>
     <classes>
       <class name="com.example.AppTest" />
     </classes>
   </test>
 
-  <test name="Test2">
+  <test name="Test2" enabled="true">
+
     <parameter name="url" value=""></parameter>
     <classes>
       <class name="com.example.BaseTest" />
