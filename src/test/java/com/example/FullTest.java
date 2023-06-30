@@ -23,8 +23,8 @@ public class FullTest {
         WebDriver driver = new ChromeDriver(options);
         driver.get(url);
         Assert.assertEquals(url, driver.getCurrentUrl());
-        driver.findElement(By.id("usuario")).sendKeys("staging");
-        driver.findElement(By.id("password")).sendKeys("P4ssSt4g1ng");
+        driver.findElement(By.id("usuario")).sendKeys("dguardia");
+        driver.findElement(By.id("password")).sendKeys("dguardia");
         driver.findElement(By.xpath("//a[text()='Ingresar']")).click();
         Assert.assertEquals(url + "administrator/notas", driver.getCurrentUrl());
         System.out.println("TEST 1 PASSED");
