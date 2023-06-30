@@ -8,10 +8,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AppTest {
-    @Parameters({ "url" })
+public class FullTest {
+    @Parameters({ "url", "testType" })
     @Test
-    public void testApp(String url) throws InterruptedException {
+    public void testApp(String url, String testType) throws InterruptedException {
+        System.out.println("Tipo de test: " + testType);
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
