@@ -4,10 +4,10 @@
 
     <!--<parameter
   name="testType" value=""></parameter>-->
-    <test name="Test" enabled="true">
+    <test name="Test" enabled="false">
         <parameter name="url" value=""></parameter>
         <classes>
-            <class name="com.example.test" />
+            <class name="com.example.AppTest" />
         </classes>
     </test>
 

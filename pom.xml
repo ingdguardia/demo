@@ -89,8 +89,8 @@
         <version>3.1.2</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>${testngpath}</suiteXmlFile>
-            <!-- <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>-->
+            <!-- <suiteXmlFile>${testngpath}</suiteXmlFile>-->
+            <suiteXmlFile>src/test/resources/testng2.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>

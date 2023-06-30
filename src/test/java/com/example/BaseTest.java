@@ -33,4 +33,16 @@ public class BaseTest {
         driver.quit();
     }
 
+    @Test
+    public void testApp() throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(options);
+        driver.get("https://telebajocero.backend.thinkindot.com/backend/");
+        System.out.println("TEST 1");
+        Thread.sleep(2000);
+        driver.quit();
+    }
+
 }
