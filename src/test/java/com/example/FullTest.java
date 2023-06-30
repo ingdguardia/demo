@@ -30,6 +30,7 @@ public class FullTest {
         driver.findElement(By.xpath("//a[text()='Ingresar']")).click();
         Assert.assertEquals(url + "administrator/notas", driver.getCurrentUrl());
         System.out.println("TEST 1 PASSED");
+        Thread.sleep(10000);
         driver.quit();
     }
 
@@ -44,7 +45,7 @@ public class FullTest {
         WebDriver driver = new ChromeDriver(options);
         driver.get(url);
         System.out.println("TEST 2");
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         driver.quit();
     }
 
@@ -58,7 +59,7 @@ public class FullTest {
         WebDriver driver = new ChromeDriver(options);
         driver.get(url);
         System.out.println("TEST 3");
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.quit();
     }
 }
