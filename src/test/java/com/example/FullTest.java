@@ -31,7 +31,7 @@ public class FullTest {
         driver.quit();
     }
 
-    @Parameters({ "url" })
+    @Parameters({ "url2" })
     @Test
     public void testApp2(String url) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
@@ -44,7 +44,7 @@ public class FullTest {
         driver.quit();
     }
 
-    @Parameters({ "url" })
+    @Parameters({ "url3" })
     @Test
     public void testApp3(String url) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
