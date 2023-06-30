@@ -20,6 +20,7 @@ public class FullTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--window-position=12,34");
         WebDriver driver = new ChromeDriver(options);
         driver.get(url);
         Assert.assertEquals(url, driver.getCurrentUrl());
@@ -37,6 +38,7 @@ public class FullTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--window-position=34,56");
         WebDriver driver = new ChromeDriver(options);
         driver.get(url);
         System.out.println("TEST 2");
