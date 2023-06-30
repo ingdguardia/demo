@@ -1,18 +1,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="Suite1" verbose="1">
+<suite name="Suite1" verbose="1" parallel="methods" thread-count="2">
 
     <!--<parameter
   name="testType" value=""></parameter>-->
     <test name="Test" enabled="true">
         <parameter name="url" value=""></parameter>
         <classes>
-            <class name="com.example.AppTest" />
+            <class name="com.example.test" />
         </classes>
     </test>
 
-    <test name="Test2" enabled="false">
-
+    <test name="Test2" enabled="true">
         <parameter name="url" value=""></parameter>
         <classes>
             <class name="com.example.BaseTest" />
