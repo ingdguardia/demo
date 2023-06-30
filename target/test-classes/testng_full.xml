@@ -10,4 +10,20 @@
     </classes>
   </test>
 
+  <test name="Test2" enabled="true">
+    <parameter name="url2" value=""></parameter>
+    <parameter name="testType" value=""></parameter>
+    <classes>
+      <class name="com.example.FullTest" />
+    </classes>
+  </test>
+
+  <test name="Test3" enabled="true">
+    <parameter name="url3" value=""></parameter>
+    <parameter name="testType" value=""></parameter>
+    <classes>
+      <class name="com.example.FullTest" />
+    </classes>
+  </test>
+
 </suite>
