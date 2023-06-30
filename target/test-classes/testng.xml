@@ -11,13 +11,13 @@
     </classes>
   </test>
 
-  <test name="Test2" enabled="true">
-
+  <!--<test
+  name="Test2" enabled="false">
     <parameter name="url" value=""></parameter>
     <classes>
       <class name="com.example.BaseTest" />
     </classes>
-  </test>
+  </test>-->
 
   <!--  <test name="Regression1">
     <classes>

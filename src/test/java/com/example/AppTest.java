@@ -17,7 +17,7 @@ public class AppTest {
         options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
         driver.get(url);
-        System.out.println("TEST 1");
+        System.out.println("TEST 1 PROBANDO");
         Thread.sleep(2000);
         driver.quit();
     }

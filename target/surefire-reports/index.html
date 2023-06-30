@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -118,6 +118,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite1" title="com.example.BaseTest" class="method navigator-link" hash-for-method="testApp">testApp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="com.example.BaseTest" class="method navigator-link" hash-for-method="testApp2">testApp2</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite1 -->
@@ -149,9 +154,9 @@
 Build info: version: &apos;4.5.0&apos;, revision: &apos;fe167b119a&apos;
 System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;13.4.1&apos;, java.version: &apos;20.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [528747ea20c52545e43e4d92eb5e6d00, get {url=}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.198, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/gv/n79tv5gs259...}, goog:chromeOptions: {debuggerAddress: localhost:61119}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:61119/devtoo..., se:cdpVersion: 114.0.5735.198, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 528747ea20c52545e43e4d92eb5e6d00
+Command: [62b4e4b4e602b8e4566e936024772f5a, get {url=}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.198, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/gv/n79tv5gs259...}, goog:chromeOptions: {debuggerAddress: localhost:61580}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:61580/devtoo..., se:cdpVersion: 114.0.5735.198, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 62b4e4b4e602b8e4566e936024772f5a
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
@@ -181,6 +186,13 @@ Session ID: 528747ea20c52545e43e4d92eb5e6d00
                   <a name="testApp">
                   </a> <!-- testApp -->
                   <span class="method-name">testApp</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testApp2">
+                  </a> <!-- testApp2 -->
+                  <span class="method-name">testApp2</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -238,20 +250,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testApp')
+data.setCell(0, 1, 'testApp2')
 data.setCell(0, 2, 'com.example.BaseTest')
-data.setCell(0, 3, 6358);
+data.setCell(0, 3, 6145);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testApp2')
+data.setCell(1, 1, 'testApp')
 data.setCell(1, 2, 'com.example.BaseTest')
-data.setCell(1, 3, 1791);
+data.setCell(1, 3, 6086);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testApp2')
+data.setCell(2, 2, 'com.example.BaseTest')
+data.setCell(2, 3, 743);
 window.suiteTableData['Suite1']= { tableData: data, tableDiv: 'times-div-Suite1'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 12 seconds</span>
               <div id="times-div-Suite1">
               </div> <!-- times-div-Suite1 -->
             </div> <!-- times-div -->
@@ -283,10 +299,14 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <span class="method-name">testApp2</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testApp2()</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-start">6088 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

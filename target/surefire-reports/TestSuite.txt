@@ -1,17 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 6.641 s <<< FAILURE! -- in TestSuite
-com.example.BaseTest.testApp2[](1) -- Time elapsed: 1.795 s <<< FAILURE!
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 7.070 s <<< FAILURE! -- in TestSuite
+com.example.BaseTest.testApp2[](1) -- Time elapsed: 0.746 s <<< FAILURE!
 org.openqa.selenium.InvalidArgumentException: 
 invalid argument
   (Session info: chrome=114.0.5735.198)
 Build info: version: '4.5.0', revision: 'fe167b119a'
 System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '13.4.1', java.version: '20.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [528747ea20c52545e43e4d92eb5e6d00, get {url=}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.198, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/gv/n79tv5gs259...}, goog:chromeOptions: {debuggerAddress: localhost:61119}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:61119/devtoo..., se:cdpVersion: 114.0.5735.198, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 528747ea20c52545e43e4d92eb5e6d00
+Command: [62b4e4b4e602b8e4566e936024772f5a, get {url=}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.198, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/gv/n79tv5gs259...}, goog:chromeOptions: {debuggerAddress: localhost:61580}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:61580/devtoo..., se:cdpVersion: 114.0.5735.198, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 62b4e4b4e602b8e4566e936024772f5a
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
