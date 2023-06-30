@@ -16,7 +16,7 @@ public class BaseTest {
 
     @Parameters({ "url" })
     @Test
-    public void testApp2(String url) throws InterruptedException {
+    public void testApp1(String url) throws InterruptedException {
         System.out.println("TEST 1");
         System.out.println("URL EXTRAIDA DE JENKINS: " + url);
         WebDriverManager.chromedriver().setup();
@@ -33,27 +33,29 @@ public class BaseTest {
         driver.quit();
     }
 
+    @Parameters({ "url" })
     @Test
-    public void testApp() throws InterruptedException {
+    public void testApp2(String url) throws InterruptedException {
         System.out.println("TEST 2");
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
-        driver.get("https://telebajocero.backend.thinkindot.com/backend/");
+        driver.get(url);
         Thread.sleep(2000);
         System.out.println("TEST 2 PASSED");
         driver.quit();
     }
 
+    @Parameters({ "url" })
     @Test
-    public void testApp2() throws InterruptedException {
+    public void testApp3(String url) throws InterruptedException {
         System.out.println("TEST 3");
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
-        driver.get("https://telebajocero.backend.thinkindot.com/backend/");
+        driver.get(url);
         Thread.sleep(2000);
         System.out.println("TEST 3 PASSED");
         driver.quit();
