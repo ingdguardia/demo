@@ -1,5 +1,6 @@
 package com.example;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,14 +9,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AppTest {
-
+    @Parameters({ "url" })
     @Test
-    public void testApp() throws InterruptedException {
+    public void testApp(String url) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
-        driver.get("https://telebajocero.backend.thinkindot.com/backend/");
+        driver.get(url);
         System.out.println("TEST 1");
         Thread.sleep(2000);
         driver.quit();
