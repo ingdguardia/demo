@@ -70,10 +70,10 @@ public class FullTest extends Elements {
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
             // sendKeys(driver, txtCuerpoNota, " texto de prueba");
-            driver.switchTo().frame("cuerpoiframe");
+            driver.switchTo().frame(1);
             System.out.println("switch iframe");
             driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
-            driver.switchTo().frame("editorIframe");
+            driver.switchTo().frame(0);
             System.out.println("switch iframe");
 
             click(driver, btnGrabarNota);
