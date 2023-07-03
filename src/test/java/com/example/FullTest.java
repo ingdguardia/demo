@@ -34,7 +34,7 @@ public class FullTest extends Elements {
 
     }
 
-    @Test(dataProvider = "Login", priority = 1)
+    @Test
     public void login() throws InterruptedException {
         System.out.println("LOGIN");
         try {
@@ -57,7 +57,7 @@ public class FullTest extends Elements {
 
     }
 
-    @Test(dataProvider = "Crear nota", priority = 2)
+    @Test
     public void createNote() throws InterruptedException {
         System.out.println("Crear Nota");
         try {
