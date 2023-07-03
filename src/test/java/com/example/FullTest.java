@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -62,7 +63,9 @@ public class FullTest extends Elements {
         System.out.println("Crear Nota");
         try {
             click(driver, btnNuevo);
-            // checkTitlePage(driver, "Sin Titulo");
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(1));
+            checkTitlePage(driver, "Sin Titulo");
             sendKeys(driver, txtCopeteNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
@@ -75,6 +78,7 @@ public class FullTest extends Elements {
             sendKeys(driver, txtCuerpoNota, texto);
             click(driver, btnGrabarNota);
             driver.close();
+            driver.switchTo().window(tabs.get(0));
             buffer.close();
             setHeaderNote("Automation");
             System.out.println("HEADER NOTA: " + headerNota.toString());
