@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -16,18 +18,15 @@ public class FullTest extends Elements {
     String grupos;
     String url;
     WebDriver driver;
+    String texto;
 
     @Parameters({ "grupo", "testType" })
     @BeforeTest
     public void initializeVariables(String grupo, String testType) {
         System.out.println("BEFORE TEST");
-        System.out.println("URL BASE1: " + url);
-        System.out.println("GRUPO: " + grupo);
-        System.out.println("GRUPOS: " + grupos);
         getUrl(grupo);
-        System.out.println("URL BASE2: " + url);
-        System.out.println("GRUPO2: " + grupo);
-        System.out.println("GRUPOS2: " + grupos);
+        System.out.println("URL BASE: " + url);
+        System.out.println("GRUPO: " + grupo);
         System.out.println("Tipo de test: " + testType);
 
         driver = initializeChrome(driver);
@@ -36,8 +35,8 @@ public class FullTest extends Elements {
     }
 
     @Test
-    public void testApp() throws InterruptedException {
-        System.out.println("TEST 1");
+    public void login() throws InterruptedException {
+        System.out.println("LOGIN");
         try {
             driver.get(url);
             Assert.assertEquals(url, driver.getCurrentUrl());
@@ -49,7 +48,7 @@ public class FullTest extends Elements {
             // driver.findElement(txtLoginPass).sendKeys("P4ssSt4g1ng");
             // driver.findElement(btnLogin).click();
             Assert.assertEquals(url + "administrator/notas", driver.getCurrentUrl());
-            System.out.println("TEST 1 PASSED");
+            System.out.println("LOGIN OK");
             Thread.sleep(2000);
             // driver2.quit();
         } catch (Exception e) {
@@ -59,10 +58,31 @@ public class FullTest extends Elements {
     }
 
     @Test
-    public void testApp2() throws InterruptedException {
-        driver.get(url);
-        System.out.println("TEST 2");
-        Thread.sleep(5000);
+    public void createNote() throws InterruptedException {
+        System.out.println("Crear Nota");
+        try {
+            click(driver, btnNuevo);
+            checkTitlePage(driver, "Sin Titulo");
+            sendKeys(driver, txtCopeteNota, "Test Auto");
+            sendKeys(driver, txtTituloNota, "Automation");
+            sendKeys(driver, txtCopeteNota, "Auto-Copete");
+
+            FileReader archivo = new FileReader("/Users/dario.guardia/Documents/lorem.rtf");
+            BufferedReader buffer = new BufferedReader(archivo);
+            while ((texto = buffer.readLine()) != null) {
+                texto = buffer.readLine() + " ";
+            }
+            sendKeys(driver, txtCuerpoNota, texto);
+            click(driver, btnGrabarNota);
+            driver.close();
+            setHeaderNote("Automation");
+            System.out.println("HEADER NOTA: " + headerNota.toString());
+            visibiltyOf(driver, headerNota);
+
+            System.out.println("CREAR NOTA OK");
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e);
+        }
         driver.quit();
     }
 
