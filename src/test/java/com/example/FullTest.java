@@ -27,12 +27,18 @@ public class FullTest {
         System.out.println("GRUPO2: " + grupo);
         System.out.println("GRUPOS2: " + grupos);
         System.out.println("Tipo de test: " + testType);
+
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--window-position=1,1");
+        options.addArguments("--window-size=800x600");
+        WebDriver driver = new ChromeDriver(options);
     }
 
     // @Parameters({ "grupo", "testType" })
     @Test
-    public void testApp(String grupo, String testType) throws InterruptedException {
-
+    public void testApp() throws InterruptedException {
         System.out.println("TEST 1");
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
