@@ -3,29 +3,12 @@
 <suite name="Suite1" verbose="1" parallel="methods" thread-count="3">
 
   <test name="Test1" enabled="true">
-    <parameter name="url" value=""></parameter>
-    <parameter name="url2" value=""></parameter>
-    <parameter name="url3" value=""></parameter>
+    <parameter name="grupo" value=""></parameter>
     <parameter name="testType" value=""></parameter>
     <classes>
       <class name="com.example.FullTest" />
     </classes>
   </test>
 
-  <test name="Test2" enabled="false">
-    <parameter name="url2" value=""></parameter>
-    <parameter name="testType" value=""></parameter>
-    <classes>
-      <class name="com.example.FullTest" />
-    </classes>
-  </test>
-
-  <test name="Test3" enabled="false">
-    <parameter name="url3" value=""></parameter>
-    <parameter name="testType" value=""></parameter>
-    <classes>
-      <class name="com.example.FullTest" />
-    </classes>
-  </test>
 
 </suite>

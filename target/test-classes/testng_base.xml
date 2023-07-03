@@ -3,7 +3,7 @@
 <suite name="Suite1" verbose="1" parallel="methods" thread-count="3">
 
     <test name="Test1" enabled="true">
-        <parameter name="url" value=""></parameter>
+        <parameter name="grupo" value=""></parameter>
         <parameter name="testType" value=""></parameter>
         <classes>
             <class name="com.example.BaseTest" />

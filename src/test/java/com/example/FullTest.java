@@ -11,12 +11,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class FullTest {
-    @Parameters({ "url", "testType" })
+    String grupos;
+    String urlBase;
+
+    @Parameters({ "grupo", "testType" })
     @Test
-    public void testApp(String url, String testType) throws InterruptedException {
+    public void testApp(String grupo, String testType) throws InterruptedException {
+        System.out.println("URL BASE1: " + urlBase);
+        String url = urlGrupo(grupo);
+        System.out.println("URL BASE2: " + urlBase);
         System.out.println("Tipo de test: " + testType);
         System.out.println("TEST 1");
-        System.out.println("URL EXTRAIDA DE JENKINS: " + url);
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -34,9 +39,10 @@ public class FullTest {
         driver.quit();
     }
 
-    @Parameters({ "url2" })
-    @Test
+    // @Parameters({ "url2" })
+    // @Test
     public void testApp2(String url) throws InterruptedException {
+        System.out.println("GRUPOS: " + grupos);
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -49,8 +55,8 @@ public class FullTest {
         driver.quit();
     }
 
-    @Parameters({ "url3" })
-    @Test
+    // @Parameters({ "url3" })
+    // @Test
     public void testApp3(String url) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -61,5 +67,12 @@ public class FullTest {
         System.out.println("TEST 3");
         Thread.sleep(10000);
         driver.quit();
+    }
+
+    public String urlGrupo(String check) {
+        if (check.equals("america")) {
+            urlBase = "https://diariolasamericas-diariolasamericas.backend.staging.thinkindot.com/backend/";
+        }
+        return urlBase;
     }
 }
