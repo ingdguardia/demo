@@ -66,21 +66,13 @@ public class FullTest extends Elements {
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
             checkTitlePage(driver, "Sin Titulo");
-            Thread.sleep(3000);
-            sendKeys(driver, txtCopeteNota, "Test Auto");
+            sendKeys(driver, txtVolantaNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
-
-            FileReader archivo = new FileReader("/Users/dario.guardia/Documents/lorem.rtf");
-            BufferedReader buffer = new BufferedReader(archivo);
-            while ((texto = buffer.readLine()) != null) {
-                texto = buffer.readLine() + " ";
-            }
-            sendKeys(driver, txtCuerpoNota, texto);
+            sendKeys(driver, txtCuerpoNota, " texto de prueba");
             click(driver, btnGrabarNota);
             driver.close();
             driver.switchTo().window(tabs.get(0));
-            buffer.close();
             setHeaderNote("Automation");
             System.out.println("HEADER NOTA: " + headerNota.toString());
             visibiltyOf(driver, headerNota);
