@@ -1,6 +1,7 @@
 package com.example;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
@@ -15,12 +16,23 @@ public class FullTest {
     String urlBase;
 
     @Parameters({ "grupo", "testType" })
+    @BeforeTest
+    public void initializeVariables(String grupo, String testType) {
+        System.out.println("BEFORE TEST");
+        System.out.println("URL BASE1: " + urlBase);
+        System.out.println("GRUPO: " + grupo);
+        System.out.println("GRUPOS: " + grupos);
+        urlBase = urlGrupo(grupo);
+        System.out.println("URL BASE2: " + urlBase);
+        System.out.println("GRUPO2: " + grupo);
+        System.out.println("GRUPOS2: " + grupos);
+        System.out.println("Tipo de test: " + testType);
+    }
+
+    // @Parameters({ "grupo", "testType" })
     @Test
     public void testApp(String grupo, String testType) throws InterruptedException {
-        System.out.println("URL BASE1: " + urlBase);
-        String url = urlGrupo(grupo);
-        System.out.println("URL BASE2: " + urlBase);
-        System.out.println("Tipo de test: " + testType);
+
         System.out.println("TEST 1");
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -28,12 +40,12 @@ public class FullTest {
         options.addArguments("--window-position=1,1");
         options.addArguments("--window-size=800x600");
         WebDriver driver = new ChromeDriver(options);
-        driver.get(url);
-        Assert.assertEquals(url, driver.getCurrentUrl());
+        driver.get(urlBase);
+        Assert.assertEquals(urlBase, driver.getCurrentUrl());
         driver.findElement(By.id("usuario")).sendKeys("staging");
         driver.findElement(By.id("password")).sendKeys("P4ssSt4g1ng");
         driver.findElement(By.xpath("//a[text()='Ingresar']")).click();
-        Assert.assertEquals(url + "administrator/notas", driver.getCurrentUrl());
+        Assert.assertEquals(urlBase + "administrator/notas", driver.getCurrentUrl());
         System.out.println("TEST 1 PASSED");
         Thread.sleep(2000);
         driver.quit();
@@ -72,6 +84,7 @@ public class FullTest {
 
     public String urlGrupo(String check) {
         if (check.equals("america")) {
+            grupos = check;
             urlBase = "https://diariolasamericas-diariolasamericas.backend.staging.thinkindot.com/backend/";
         }
         return urlBase;
