@@ -69,7 +69,9 @@ public class FullTest extends Elements {
             sendKeys(driver, txtVolantaNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
-            sendKeys(driver, txtCuerpoNota, " texto de prueba");
+            // sendKeys(driver, txtCuerpoNota, " texto de prueba");
+            Thread.sleep(1000);
+            driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
             click(driver, btnGrabarNota);
             driver.close();
             driver.switchTo().window(tabs.get(0));
