@@ -39,7 +39,7 @@ public class Elements {
 
     public void sendKeys(WebDriver driver, By element, String text) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        wait.until(ExpectedConditions.elementToBeSelected(element));
         driver.findElement(element).sendKeys(text);
 
     }
