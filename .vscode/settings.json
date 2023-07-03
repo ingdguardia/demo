@@ -1,3 +1,13 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "cSpell.words": [
+        "grupo",
+        "GRUPO",
+        "grupos",
+        "GRUPOS",
+        "Ingresar",
+        "notas",
+        "Tipo",
+        "usuario"
+    ]
 }

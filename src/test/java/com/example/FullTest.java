@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class FullTest {
+public class FullTest extends Elements {
     String grupos;
     String url;
     WebDriver driver;
@@ -35,7 +35,6 @@ public class FullTest {
 
     }
 
-    // @Parameters({ "grupo", "testType" })
     @Test
     public void testApp() throws InterruptedException {
         System.out.println("TEST 1");
@@ -43,9 +42,12 @@ public class FullTest {
             driver.get(url);
             Assert.assertEquals(url, driver.getCurrentUrl());
             Thread.sleep(2000);
-            driver.findElement(By.id("usuario")).sendKeys("staging");
-            driver.findElement(By.id("password")).sendKeys("P4ssSt4g1ng");
-            driver.findElement(By.xpath("//a[text()='Ingresar']")).click();
+            sendKeys(driver, txtLoginUser, "staging");
+            sendKeys(driver, txtLoginPass, "P4ssSt4g1ng");
+            click(driver, btnLogin);
+            // driver.findElement(txtLoginUser).sendKeys("staging");
+            // driver.findElement(txtLoginPass).sendKeys("P4ssSt4g1ng");
+            // driver.findElement(btnLogin).click();
             Assert.assertEquals(url + "administrator/notas", driver.getCurrentUrl());
             System.out.println("TEST 1 PASSED");
             Thread.sleep(2000);
@@ -56,7 +58,6 @@ public class FullTest {
 
     }
 
-    // @Parameters({ "url2" })
     @Test
     public void testApp2() throws InterruptedException {
         driver.get(url);
@@ -65,7 +66,6 @@ public class FullTest {
         driver.quit();
     }
 
-    // @Parameters({ "url3" })
     // @Test
     public void testApp3(String url) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
