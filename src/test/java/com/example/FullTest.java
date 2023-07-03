@@ -57,7 +57,7 @@ public class FullTest extends Elements {
 
     }
 
-    @Test
+    @Test(dataProvider = "Crear nota", priority = 2)
     public void createNote() throws InterruptedException {
         System.out.println("Crear Nota");
         try {
