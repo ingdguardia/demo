@@ -34,15 +34,15 @@ public class FullTest extends Elements {
 
     }
 
-    @Test
+    @Test(dataProvider = "Login", priority = 1)
     public void login() throws InterruptedException {
         System.out.println("LOGIN");
         try {
             driver.get(url);
             Assert.assertEquals(url, driver.getCurrentUrl());
             Thread.sleep(2000);
-            // sendKeys(driver, txtLoginUser, "staging");
-            // sendKeys(driver, txtLoginPass, "P4ssSt4g1ng");
+            sendKeys(driver, txtLoginUser, "staging");
+            sendKeys(driver, txtLoginPass, "P4ssSt4g1ng");
             click(driver, btnLogin);
             // driver.findElement(txtLoginUser).sendKeys("staging");
             // driver.findElement(txtLoginPass).sendKeys("P4ssSt4g1ng");
@@ -57,7 +57,7 @@ public class FullTest extends Elements {
 
     }
 
-    // @Test
+    @Test
     public void createNote() throws InterruptedException {
         System.out.println("Crear Nota");
         try {
