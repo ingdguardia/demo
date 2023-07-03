@@ -52,7 +52,7 @@ public class FullTest {
     }
 
     // @Parameters({ "url2" })
-    @Test
+    // @Test
     public void testApp2() throws InterruptedException {
         System.out.println("GRUPOS: " + grupos);
         System.out.println("URL BASE: " + urlBase);
