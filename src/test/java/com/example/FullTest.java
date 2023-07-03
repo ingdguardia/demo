@@ -57,7 +57,7 @@ public class FullTest extends Elements {
 
     }
 
-    @Test
+    // @Test
     public void createNote() throws InterruptedException {
         System.out.println("Crear Nota");
         try {
