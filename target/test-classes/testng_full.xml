@@ -6,8 +6,12 @@
     <parameter name="grupo" value=""></parameter>
     <parameter name="testType" value=""></parameter>
     <classes>
-      <class name="com.example.FullTest.login" />
-      <class name="com.example.FullTest.createNote" />
+      <class name="com.example.FullTest">
+        <methods>
+          <include name="login" />
+          <include name="createNote" />
+        </methods>
+      </class>
     </classes>
   </test>
 

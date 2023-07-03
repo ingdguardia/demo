@@ -75,6 +75,7 @@ public class FullTest extends Elements {
             sendKeys(driver, txtCuerpoNota, texto);
             click(driver, btnGrabarNota);
             driver.close();
+            buffer.close();
             setHeaderNote("Automation");
             System.out.println("HEADER NOTA: " + headerNota.toString());
             visibiltyOf(driver, headerNota);
