@@ -14,6 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class FullTest {
     String grupos;
     String urlBase;
+    WebDriver driver2;
 
     @Parameters({ "grupo", "testType" })
     @BeforeTest
@@ -28,33 +29,25 @@ public class FullTest {
         System.out.println("GRUPOS2: " + grupos);
         System.out.println("Tipo de test: " + testType);
 
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--window-position=1,1");
-        options.addArguments("--window-size=800x600");
-        WebDriver driver = new ChromeDriver(options);
+        driver2 = initializeChrome(driver2);
+        driver2.get(urlBase);
+
     }
 
     // @Parameters({ "grupo", "testType" })
     @Test
     public void testApp() throws InterruptedException {
         System.out.println("TEST 1");
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--window-position=1,1");
-        options.addArguments("--window-size=800x600");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get(urlBase);
-        Assert.assertEquals(urlBase, driver.getCurrentUrl());
-        driver.findElement(By.id("usuario")).sendKeys("staging");
-        driver.findElement(By.id("password")).sendKeys("P4ssSt4g1ng");
-        driver.findElement(By.xpath("//a[text()='Ingresar']")).click();
-        Assert.assertEquals(urlBase + "administrator/notas", driver.getCurrentUrl());
+
+        driver2.get(urlBase);
+        Assert.assertEquals(urlBase, driver2.getCurrentUrl());
+        driver2.findElement(By.id("usuario")).sendKeys("staging");
+        driver2.findElement(By.id("password")).sendKeys("P4ssSt4g1ng");
+        driver2.findElement(By.xpath("//a[text()='Ingresar']")).click();
+        Assert.assertEquals(urlBase + "administrator/notas", driver2.getCurrentUrl());
         System.out.println("TEST 1 PASSED");
         Thread.sleep(2000);
-        driver.quit();
+        driver2.quit();
     }
 
     // @Parameters({ "url2" })
@@ -94,5 +87,15 @@ public class FullTest {
             urlBase = "https://diariolasamericas-diariolasamericas.backend.staging.thinkindot.com/backend/";
         }
         return urlBase;
+    }
+
+    public WebDriver initializeChrome(WebDriver driver) {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--window-position=1,1");
+        options.addArguments("--window-size=800x600");
+        driver = new ChromeDriver(options);
+        return driver;
     }
 }
