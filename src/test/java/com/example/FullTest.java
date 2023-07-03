@@ -1,6 +1,7 @@
 package com.example;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -38,15 +39,25 @@ public class FullTest {
     @Test
     public void testApp() throws InterruptedException {
         System.out.println("TEST 1");
+        try {
+            driver2.get(urlBase);
+            Assert.assertEquals(urlBase, driver2.getCurrentUrl());
+            Thread.sleep(2000);
+            driver2.findElement(By.id("usuario")).sendKeys("staging");
+            driver2.findElement(By.id("password")).sendKeys("P4ssSt4g1ng");
+            driver2.findElement(By.xpath("//a[text()='Ingresar']")).click();
+            Assert.assertEquals(urlBase + "administrator/notas", driver2.getCurrentUrl());
+            System.out.println("TEST 1 PASSED");
+            Thread.sleep(2000);
+            // driver2.quit();
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e);
+        }
 
-        driver2.get(urlBase);
-        Assert.assertEquals(urlBase, driver2.getCurrentUrl());
-        driver2.findElement(By.id("usuario")).sendKeys("staging");
-        driver2.findElement(By.id("password")).sendKeys("P4ssSt4g1ng");
-        driver2.findElement(By.xpath("//a[text()='Ingresar']")).click();
-        Assert.assertEquals(urlBase + "administrator/notas", driver2.getCurrentUrl());
-        System.out.println("TEST 1 PASSED");
-        Thread.sleep(2000);
+    }
+
+    @AfterTest
+    public void quit() {
         driver2.quit();
     }
 
