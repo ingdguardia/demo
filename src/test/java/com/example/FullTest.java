@@ -41,8 +41,8 @@ public class FullTest extends Elements {
             driver.get(url);
             Assert.assertEquals(url, driver.getCurrentUrl());
             Thread.sleep(2000);
-            sendKeys(driver, txtLoginUser, "staging");
-            sendKeys(driver, txtLoginPass, "P4ssSt4g1ng");
+            // sendKeys(driver, txtLoginUser, "staging");
+            // sendKeys(driver, txtLoginPass, "P4ssSt4g1ng");
             click(driver, btnLogin);
             // driver.findElement(txtLoginUser).sendKeys("staging");
             // driver.findElement(txtLoginPass).sendKeys("P4ssSt4g1ng");
