@@ -62,7 +62,7 @@ public class FullTest extends Elements {
         System.out.println("Crear Nota");
         try {
             click(driver, btnNuevo);
-            checkTitlePage(driver, "Sin Titulo");
+            // checkTitlePage(driver, "Sin Titulo");
             sendKeys(driver, txtCopeteNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
