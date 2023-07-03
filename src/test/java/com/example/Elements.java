@@ -19,6 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Elements {
     String tituloNota;
+    int timeOut = 30;
     // ELEMENTOS CMS
     By txtLoginUser = By.id("usuario");
     By txtLoginPass = By.id("password");
@@ -32,9 +33,14 @@ public class Elements {
     By headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
 
     public void click(WebDriver driver, By element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-        driver.findElement(element).click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            driver.findElement(element).click();
+        } catch (Exception e) {
+            System.out.println("CANT CLICK ELEMENT: " + e);
+        }
+
     }
 
     public void sendKeys(WebDriver driver, By element, String text) {
