@@ -40,16 +40,17 @@ public class FullTest {
     }
 
     // @Parameters({ "url2" })
-    // @Test
-    public void testApp2(String url) throws InterruptedException {
+    @Test
+    public void testApp2() throws InterruptedException {
         System.out.println("GRUPOS: " + grupos);
+        System.out.println("URL BASE: " + urlBase);
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--window-position=500,500");
         options.addArguments("--window-size=800x600");
         WebDriver driver = new ChromeDriver(options);
-        driver.get(url);
+        driver.get(urlBase);
         System.out.println("TEST 2");
         Thread.sleep(5000);
         driver.quit();
