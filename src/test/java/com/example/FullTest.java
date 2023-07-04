@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -69,8 +71,8 @@ public class FullTest extends Elements {
             sendKeys(driver, txtVolantaNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
-            driver.findElement(txtCopeteNota).sendKeys(Keys.TAB);
-            driver.findElement(txtCopeteNota).sendKeys("HOLA");
+            new Actions(driver).sendKeys(Keys.TAB).sendKeys("HOLA");
+
             // sendKeys(driver, txtCuerpoNota, " texto de prueba");
             Thread.sleep(2000);
             // driver.switchTo().frame("cuerpoiframe");
@@ -78,23 +80,25 @@ public class FullTest extends Elements {
 
             // System.out.println("switch iframe");
 
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            Integer noOfFrames = Integer.parseInt(js.executeScript("return window.length").toString());
-            System.out.println("No. of iframes on the page are " + noOfFrames);
+            // JavascriptExecutor js = (JavascriptExecutor) driver;
+            // Integer noOfFrames = Integer.parseInt(js.executeScript("return
+            // window.length").toString());
+            // System.out.println("No. of iframes on the page are " + noOfFrames);
 
-            driver.switchTo().frame(2);
-            System.out.println("switch iframe 3");
-            sendKeys(driver, txtCuerpoNota, "alo");
-            WebElement element = driver.findElement(txtCuerpoNota);
-            js.executeScript("arguments[0].textContent = arguments[1];", element, "This is a test");
+            // driver.switchTo().frame(2);
+            // System.out.println("switch iframe 3");
+            // sendKeys(driver, txtCuerpoNota, "alo");
+            // WebElement element = driver.findElement(txtCuerpoNota);
+            // js.executeScript("arguments[0].textContent = arguments[1];", element, "This
+            // is a test");
 
             // click(driver, txtCuerpoNota);
             // sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
             // driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
-            Thread.sleep(2000);
+            // Thread.sleep(2000);
 
-            driver.switchTo().frame(1);
-            System.out.println("switch iframe 1");
+            // driver.switchTo().frame(1);
+            // System.out.println("switch iframe 1");
 
             click(driver, btnGrabarNota);
             driver.close();
