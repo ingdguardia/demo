@@ -14,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -68,6 +69,8 @@ public class FullTest extends Elements {
             sendKeys(driver, txtVolantaNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
+            driver.findElement(txtCopeteNota).sendKeys(Keys.TAB);
+            driver.findElement(txtCopeteNota).sendKeys("HOLA");
             // sendKeys(driver, txtCuerpoNota, " texto de prueba");
             Thread.sleep(2000);
             // driver.switchTo().frame("cuerpoiframe");
