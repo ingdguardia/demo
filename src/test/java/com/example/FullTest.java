@@ -79,9 +79,9 @@ public class FullTest extends Elements {
             Integer noOfFrames = Integer.parseInt(js.executeScript("return window.length").toString());
             System.out.println("No. of iframes on the page are " + noOfFrames);
 
-            driver.switchTo().frame(3);
+            driver.switchTo().frame(2);
             System.out.println("switch iframe 3");
-            // sendKeys(driver, txtCuerpoNota, "alo");
+            sendKeys(driver, txtCuerpoNota, "alo");
             js.executeScript("arguments[0].textContent = arguments[1];", txtCuerpoNota, "This is a test");
 
             // click(driver, txtCuerpoNota);
