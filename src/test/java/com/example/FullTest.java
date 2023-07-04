@@ -7,11 +7,13 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import org.openqa.selenium.JavascriptExecutor;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -69,8 +71,13 @@ public class FullTest extends Elements {
             Thread.sleep(2000);
             driver.switchTo().frame("cuerpoiframe");
             System.out.println("switch iframe");
-            click(driver, txtCuerpoNota);
-            sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
+            // WebElement elementBody = driver.findElement(txtCuerpoNota);
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("document.getElementsByTagName('p')[0].value='Hola Mundo'");
+
+             
+            // click(driver, txtCuerpoNota);
+            //sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
             // driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
             Thread.sleep(2000);
 

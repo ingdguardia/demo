@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.JavascriptExecutor;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Elements {
@@ -28,7 +28,7 @@ public class Elements {
     By txtVolantaNota = By.id("volanta");
     By txtTituloNota = By.id("titulo");
     By txtCopeteNota = By.id("copete");
-    By txtCuerpoNota = By.xpath("/html/body/div[3]/p");
+    By txtCuerpoNota = By.xpath("//*[@id='mce_0']/p");
     By btnGrabarNota = By.id("save-button");
     By headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
 
