@@ -69,8 +69,8 @@ public class FullTest extends Elements {
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
             // sendKeys(driver, txtCuerpoNota, " texto de prueba");
             Thread.sleep(2000);
-            driver.switchTo().frame("cuerpoiframe");
-            System.out.println("switch iframe");
+            // driver.switchTo().frame("cuerpoiframe");
+            // System.out.println("switch iframe");
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("document.getElementsByTagName('p')[0].innerHTML='Hola Mundo';");
             // click(driver, txtCuerpoNota);
@@ -78,8 +78,8 @@ public class FullTest extends Elements {
             // driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
             Thread.sleep(2000);
 
-            driver.switchTo().parentFrame();
-            System.out.println("switch iframe");
+            // driver.switchTo().parentFrame();
+            // System.out.println("switch iframe");
 
             click(driver, btnGrabarNota);
             driver.close();
