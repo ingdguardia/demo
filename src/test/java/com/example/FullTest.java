@@ -73,11 +73,10 @@ public class FullTest extends Elements {
             System.out.println("switch iframe");
             // WebElement elementBody = driver.findElement(txtCuerpoNota);
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("document.getElementsByTagName('p')[0].value='Hola Mundo'");
+            js.executeScript("document.getElementsByTagName('p').value='Hola Mundo'");
 
-             
             // click(driver, txtCuerpoNota);
-            //sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
+            // sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
             // driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
             Thread.sleep(2000);
 
