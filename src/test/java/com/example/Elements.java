@@ -37,16 +37,22 @@ public class Elements {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             wait.until(ExpectedConditions.elementToBeClickable(element));
             driver.findElement(element).click();
+            System.out.println("OBJETO CLICKEADO");
         } catch (Exception e) {
-            System.out.println("CANT CLICK ELEMENT: " + e);
+            System.out.println("NO SE PUDO CLICKEAR ELEMENTO: " + e);
         }
 
     }
 
     public void sendKeys(WebDriver driver, By element, String text) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-        driver.findElement(element).sendKeys(text);
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            driver.findElement(element).sendKeys(text);
+            System.out.println("TEXTO ENVIADO: " + text);
+        } catch (Exception e) {
+            System.out.println("NO SE PUDO ENVIAR TEXTO: " + e);
+        }
 
     }
 
