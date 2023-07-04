@@ -31,7 +31,6 @@ public class FullTest extends Elements {
         System.out.println("Tipo de test: " + testType);
 
         driver = initializeChrome(driver);
-        driver.get(url);
 
     }
 
@@ -45,9 +44,6 @@ public class FullTest extends Elements {
             sendKeys(driver, txtLoginUser, "staging");
             sendKeys(driver, txtLoginPass, "P4ssSt4g1ng");
             click(driver, btnLogin);
-            // driver.findElement(txtLoginUser).sendKeys("staging");
-            // driver.findElement(txtLoginPass).sendKeys("P4ssSt4g1ng");
-            // driver.findElement(btnLogin).click();
             Assert.assertEquals(url + "administrator/notas", driver.getCurrentUrl());
             System.out.println("LOGIN OK");
             Thread.sleep(2000);
