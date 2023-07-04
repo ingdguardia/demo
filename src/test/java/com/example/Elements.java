@@ -28,7 +28,7 @@ public class Elements {
     By txtVolantaNota = By.id("volanta");
     By txtTituloNota = By.id("titulo");
     By txtCopeteNota = By.id("copete");
-    By txtCuerpoNota = By.cssSelector("#mce_0 > p");
+    By txtCuerpoNota = By.xpath("//*[@id='mce_0']/p");
     By btnGrabarNota = By.id("save-button");
     By headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
 
