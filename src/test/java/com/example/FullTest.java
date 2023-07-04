@@ -71,10 +71,17 @@ public class FullTest extends Elements {
             sendKeys(driver, txtVolantaNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
-            new Actions(driver).sendKeys(Keys.TAB).sendKeys("HOLA");
+
+            driver.switchTo().frame("cuerpoiframe");
+            sendKeys(driver, txtCuerpoNota, "alo");
+            sendKeys(driver, txtCuerpoNota, "alo");
+            sendKeys(driver, txtCuerpoNota, "alo");
+            sendKeys(driver, txtCuerpoNota, "alo");
+            sendKeys(driver, txtCuerpoNota, "alo");
+            sendKeys(driver, txtCuerpoNota, "alo");
+            Thread.sleep(3000);
 
             // sendKeys(driver, txtCuerpoNota, " texto de prueba");
-            Thread.sleep(2000);
             // driver.switchTo().frame("cuerpoiframe");
             // Thread.sleep(2000);
 
