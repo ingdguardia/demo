@@ -80,6 +80,7 @@ public class FullTest extends Elements {
 
             driver.switchTo().frame(3);
             System.out.println("switch iframe 3");
+            sendKeys(driver, txtCuerpoNota, "alo");
             js.executeScript("document.getElementsByTagName('p')[0].innerHTML='Hola Mundo';");
 
             // click(driver, txtCuerpoNota);
