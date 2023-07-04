@@ -71,14 +71,8 @@ public class FullTest extends Elements {
             Thread.sleep(2000);
             driver.switchTo().frame("cuerpoiframe");
             System.out.println("switch iframe");
-            WebElement elementBody = driver.findElement(txtCuerpoNota);
-
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            String textoP = (String) js.executeScript("return arguments[0].value", elementBody);
-            System.out.println("TEXTO P: " + textoP);
-            js.executeScript("arguments[0].value='hola mundo'", elementBody);
-            String textoP2 = (String) js.executeScript("return arguments[0].value", elementBody);
-            System.out.println("TEXTO P: " + textoP2);
+            js.executeScript("document.getElementsByTagName('p')[0].innerHTML='Hola Mundo';");
             // click(driver, txtCuerpoNota);
             // sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
             // driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
