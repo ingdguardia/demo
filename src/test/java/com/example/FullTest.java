@@ -69,6 +69,7 @@ public class FullTest extends Elements {
             Thread.sleep(2000);
             driver.switchTo().frame("cuerpoiframe");
             System.out.println("switch iframe");
+            click(driver, txtCuerpoNota);
             sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
             // driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
             Thread.sleep(2000);
