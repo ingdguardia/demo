@@ -69,12 +69,16 @@ public class FullTest extends Elements {
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
             // sendKeys(driver, txtCuerpoNota, " texto de prueba");
             Thread.sleep(2000);
-            driver.switchTo().frame("cuerpoiframe");
-            Thread.sleep(2000);
+            // driver.switchTo().frame("cuerpoiframe");
+            // Thread.sleep(2000);
 
             // System.out.println("switch iframe");
+
             JavascriptExecutor js = (JavascriptExecutor) driver;
+            Integer noOfFrames = Integer.parseInt(js.executeScript("return window.length").toString());
+            System.out.println("No. of iframes on the page are " + noOfFrames);
             js.executeScript("document.getElementsByTagName('p')[0].innerHTML='Hola Mundo';");
+
             // click(driver, txtCuerpoNota);
             // sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
             // driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
