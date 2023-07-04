@@ -64,6 +64,7 @@ public class FullTest extends Elements {
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
             checkTitlePage(driver, "Sin Titulo");
+            Thread.sleep(2000);
             sendKeys(driver, txtVolantaNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
