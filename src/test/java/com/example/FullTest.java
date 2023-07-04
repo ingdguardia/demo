@@ -73,13 +73,8 @@ public class FullTest extends Elements {
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
             Thread.sleep(3000);
             driver.switchTo().frame("cuerpoiframe");
-            sendKeys(driver, txtCuerpoNota, "alo");
-            sendKeys(driver, txtCuerpoNota, "alo");
-            sendKeys(driver, txtCuerpoNota, "alo");
-            sendKeys(driver, txtCuerpoNota, "alo");
-            sendKeys(driver, txtCuerpoNota, "alo");
-            sendKeys(driver, txtCuerpoNota, "alo");
             Thread.sleep(3000);
+            sendKeys(driver, txtCuerpoNota, "hola");
 
             // sendKeys(driver, txtCuerpoNota, " texto de prueba");
             // driver.switchTo().frame("cuerpoiframe");
