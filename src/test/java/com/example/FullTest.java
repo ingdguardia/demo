@@ -82,7 +82,8 @@ public class FullTest extends Elements {
             driver.switchTo().frame(2);
             System.out.println("switch iframe 3");
             sendKeys(driver, txtCuerpoNota, "alo");
-            js.executeScript("arguments[0].textContent = arguments[1];", txtCuerpoNota, "This is a test");
+            WebElement element = driver.findElement(txtCuerpoNota);
+            js.executeScript("arguments[0].textContent = arguments[1];", element, "This is a test");
 
             // click(driver, txtCuerpoNota);
             // sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
