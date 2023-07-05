@@ -29,7 +29,7 @@ public class Elements {
     By txtTituloNota = By.id("titulo");
     By txtCopeteNota = By.id("copete");
     By txtCuerpoNota = By.id("cuerpo");
-    By btnGrabarNota = By.id("save-button");
+    By btnGrabarNota = By.xpath("//div[@id='save-button']");
     By headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
 
     public void click(WebDriver driver, By element) {
