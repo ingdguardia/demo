@@ -101,8 +101,8 @@ public class FullTest extends Elements {
 
             // driver.switchTo().frame(1);
             // System.out.println("switch iframe 1");
-            Thread.sleep(5000);
-            driver.switchTo().frame("editorIframe");
+            // Thread.sleep(5000);
+            // driver.switchTo().frame("editorIframe");
             driver.findElement(btnGrabarNota).click();
             // click(driver, btnGrabarNota);
             driver.close();
