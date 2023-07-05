@@ -23,6 +23,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class FullTest extends Elements {
     String grupos;
     String url;
+    String urlTestApi;
     WebDriver driver;
     String texto;
     String urlApi;
@@ -84,17 +85,17 @@ public class FullTest extends Elements {
                 System.out.println("no se pudo clickear el objeto: " + e);
             }
 
-            urlApi = driver.getCurrentUrl();
-            System.out.println(urlApi);
-            String mostrar = getNoteIdApi(urlApi);
-            System.out.println("mostrar: " + mostrar);
+            // urlApi = driver.getCurrentUrl();
+            String idApi = getNoteIdApi(driver.getCurrentUrl());
 
             driver.close();
             driver.switchTo().window(tabs.get(0));
             headerNota = setHeaderNote("Automation");
             System.out.println("HEADER NOTA: " + headerNota.toString());
             visibiltyOf(driver, headerNota);
-
+            String testApi = urlTestApi + idApi;
+            driver.get(testApi);
+            Thread.sleep(3000);
             System.out.println("CREAR NOTA OK");
         } catch (Exception e) {
             System.out.println("ERROR: " + e);
@@ -124,6 +125,7 @@ public class FullTest extends Elements {
         if (check.equals("america")) {
             grupos = check;
             url = "https://diariolasamericas-diariolasamericas.backend.staging.thinkindot.com/backend/";
+            urlTestApi = "https://lasamericas-diariolasamericas-upgrade-81.backend.staging.thinkindot.com/2.0/public/articles/";
         }
     }
 
