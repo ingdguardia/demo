@@ -75,7 +75,7 @@ public class FullTest extends Elements {
             try {
                 WebElement elementGrabar = driver.findElement(btnGrabarNota);
                 JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click", elementGrabar);
+                js.executeScript("arguments[0].click()", elementGrabar);
                 System.out.println("click");
 
                 Thread.sleep(3000);
