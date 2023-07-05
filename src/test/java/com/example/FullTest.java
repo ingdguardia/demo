@@ -25,6 +25,7 @@ public class FullTest extends Elements {
     String url;
     WebDriver driver;
     String texto;
+    String urlApi;
 
     @Parameters({ "grupo", "testType" })
     @BeforeTest
@@ -68,6 +69,9 @@ public class FullTest extends Elements {
             driver.switchTo().window(tabs.get(1));
             checkTitlePage(driver, "Sin Titulo");
             Thread.sleep(2000);
+            urlApi = driver.getCurrentUrl();
+            String mostrar = getNoteIdApi(url);
+            System.out.println("mostrar: " + mostrar);
             sendKeys(driver, txtVolantaNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
@@ -83,39 +87,6 @@ public class FullTest extends Elements {
                 System.out.println("no se pudo clickear el objeto: " + e);
             }
 
-            // driver.switchTo().frame("cuerpoiframe");
-            // Thread.sleep(3000);
-            // sendKeys(driver, txtCuerpoNota, "hola");
-
-            // sendKeys(driver, txtCuerpoNota, " texto de prueba");
-            // driver.switchTo().frame("cuerpoiframe");
-            // Thread.sleep(2000);
-
-            // System.out.println("switch iframe");
-
-            // JavascriptExecutor js = (JavascriptExecutor) driver;
-            // Integer noOfFrames = Integer.parseInt(js.executeScript("return
-            // window.length").toString());
-            // System.out.println("No. of iframes on the page are " + noOfFrames);
-
-            // driver.switchTo().frame(2);
-            // System.out.println("switch iframe 3");
-            // sendKeys(driver, txtCuerpoNota, "alo");
-            // WebElement element = driver.findElement(txtCuerpoNota);
-            // js.executeScript("arguments[0].textContent = arguments[1];", element, "This
-            // is a test");
-
-            // click(driver, txtCuerpoNota);
-            // sendKeys(driver, txtCuerpoNota, "TEXTO DE PRUEBA");
-            // driver.findElement(txtCuerpoNota).sendKeys("TEXTO DE PRUEBA");
-            // Thread.sleep(2000);
-
-            // driver.switchTo().frame(1);
-            // System.out.println("switch iframe 1");
-            // Thread.sleep(5000);
-            // driver.switchTo().frame("editorIframe");
-            // driver.findElement(btnGrabarNota).click();
-            // click(driver, btnGrabarNota);
             driver.close();
             driver.switchTo().window(tabs.get(0));
             headerNota = setHeaderNote("Automation");

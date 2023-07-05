@@ -73,4 +73,13 @@ public class Elements {
         tituloNota = titulo;
         return headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
     }
+
+    public String getNoteIdApi(String url) {
+        String id = "";
+        String ruta1 = url;
+        // Obtengo lo que quiero mostrar en el textview (la subcadena)
+        String ultima = ruta1.substring(ruta1.lastIndexOf("/") + 1);
+        System.out.println("ultima: " + ultima);
+        return id;
+    }
 }
