@@ -71,6 +71,11 @@ public class FullTest extends Elements {
             // sendKeys(driver, txtVolantaNota, "Test Auto");
             // sendKeys(driver, txtTituloNota, "Automation");
             // sendKeys(driver, txtCopeteNota, "Auto-Copete");
+
+            WebElement elementGrabar = driver.findElement(btnGrabarNota);
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click", elementGrabar);
+            System.out.println("click");
             // Thread.sleep(3000);
             // driver.switchTo().frame("cuerpoiframe");
             // Thread.sleep(3000);
@@ -103,7 +108,7 @@ public class FullTest extends Elements {
             // System.out.println("switch iframe 1");
             // Thread.sleep(5000);
             // driver.switchTo().frame("editorIframe");
-            driver.findElement(btnGrabarNota).click();
+            // driver.findElement(btnGrabarNota).click();
             // click(driver, btnGrabarNota);
             driver.close();
             driver.switchTo().window(tabs.get(0));
