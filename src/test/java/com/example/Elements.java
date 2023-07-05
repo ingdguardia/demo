@@ -77,8 +77,10 @@ public class Elements {
     public String getNoteIdApi(String url) {
         String id = "";
         String ruta1 = url;
-        // Obtengo lo que quiero mostrar en el textview (la subcadena)
-        String ultima = ruta1.substring(ruta1.lastIndexOf("/"));
+        // Separo la ruta en partes delimitadas por el caracter /
+        String[] parts = ruta1.split("/");
+        // Obtengo lo que quiero mostrar en el textview
+        String ultima = parts[parts.length];
         System.out.println("ultima: " + ultima);
         return id;
     }
