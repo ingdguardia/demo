@@ -71,8 +71,6 @@ public class Elements {
 
     public By setHeaderNote(String titulo) {
         tituloNota = titulo;
-        System.out.println("HEADER NOTA: " + headerNota.toString());
-        headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
         return headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
     }
 }

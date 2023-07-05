@@ -119,6 +119,7 @@ public class FullTest extends Elements {
             driver.close();
             driver.switchTo().window(tabs.get(0));
             headerNota = setHeaderNote("Automation");
+            System.out.println("HEADER NOTA: " + headerNota.toString());
             visibiltyOf(driver, headerNota);
 
             System.out.println("CREAR NOTA OK");
