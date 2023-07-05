@@ -69,9 +69,6 @@ public class FullTest extends Elements {
             driver.switchTo().window(tabs.get(1));
             checkTitlePage(driver, "Sin Titulo");
             Thread.sleep(2000);
-            urlApi = driver.getCurrentUrl();
-            String mostrar = getNoteIdApi(url);
-            System.out.println("mostrar: " + mostrar);
             sendKeys(driver, txtVolantaNota, "Test Auto");
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
@@ -86,6 +83,10 @@ public class FullTest extends Elements {
             } catch (Exception e) {
                 System.out.println("no se pudo clickear el objeto: " + e);
             }
+
+            urlApi = driver.getCurrentUrl();
+            String mostrar = getNoteIdApi(url);
+            System.out.println("mostrar: " + mostrar);
 
             driver.close();
             driver.switchTo().window(tabs.get(0));
