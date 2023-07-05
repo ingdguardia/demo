@@ -78,8 +78,9 @@ public class Elements {
         String ruta1 = url;
         // Separo la ruta en partes delimitadas por el caracter /
         String[] parts = ruta1.split("/");
+        System.out.println(parts.length);
         // Obtengo lo que quiero mostrar en el textview
-        String ultima = parts[3];
+        String ultima = parts[4];
 
         System.out.println("ultima: " + ultima);
         return ultima;
