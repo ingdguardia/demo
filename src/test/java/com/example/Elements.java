@@ -66,13 +66,11 @@ public class Elements {
     public void visibiltyOf(WebDriver driver, By element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        System.out.println("Se ve el objeto: " + element.toString());
     }
 
     public By setHeaderNote(String titulo) {
-        System.out.println("Antes: " + tituloNota);
         tituloNota = titulo;
-        System.out.println("Despues: " + tituloNota);
-        By headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
         System.out.println("HEADER NOTA: " + headerNota.toString());
         return headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
     }
