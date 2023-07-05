@@ -78,7 +78,7 @@ public class Elements {
         String id = "";
         String ruta1 = url;
         // Obtengo lo que quiero mostrar en el textview (la subcadena)
-        String ultima = ruta1.substring(ruta1.lastIndexOf("/") + 1);
+        String ultima = ruta1.substring(ruta1.lastIndexOf("/"));
         System.out.println("ultima: " + ultima);
         return id;
     }
