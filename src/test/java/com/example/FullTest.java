@@ -94,6 +94,9 @@ public class FullTest extends Elements {
             driver.get(testApi);
             System.out.println(testApi);
             Thread.sleep(3000);
+            visibiltyOf(driver, jsonTituloNota);
+            visibiltyOf(driver, jsonCopeteNota);
+            visibiltyOf(driver, jsonVolanteNota);
             System.out.println("CREAR NOTA OK");
 
         } catch (Exception e) {
@@ -129,15 +132,10 @@ public class FullTest extends Elements {
     }
 
     public WebDriver initializeChrome(WebDriver explorer) {
-        // String pathToExtension = "/Users/dario.guardia/Library/Application
-        // Support/Google/Chrome/Default/Extensions/gbmdgpbipfallnflgajpaliibnhdgobh/0.18.1_0";
-
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        // options.addArguments("–load-extension=" + pathToExtension);
         options.addExtensions(new File("JsonViewer.crx"));
-
         explorer = new ChromeDriver(options);
         return explorer;
     }

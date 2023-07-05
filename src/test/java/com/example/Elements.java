@@ -22,6 +22,9 @@ public class Elements {
     By txtCuerpoNota = By.id("cuerpo");
     By btnGrabarNota = By.xpath("//div[@id='save-button']");
     By headerNota;
+    By jsonTituloNota = By.xpath("//span[contains(text(), 'Automation')]");
+    By jsonCopeteNota = By.xpath("//span[contains(text(), 'Auto-Copete')]");
+    By jsonVolanteNota = By.xpath("//span[contains(text(), 'Test Auto')]");
 
     public void click(WebDriver driver, By element) {
         try {
