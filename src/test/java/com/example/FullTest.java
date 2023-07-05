@@ -102,7 +102,8 @@ public class FullTest extends Elements {
             // driver.switchTo().frame(1);
             // System.out.println("switch iframe 1");
             Thread.sleep(5000);
-            click(driver, btnGrabarNota);
+            driver.findElement(btnGrabarNota).click();
+            // click(driver, btnGrabarNota);
             driver.close();
             driver.switchTo().window(tabs.get(0));
             setHeaderNote("Automation");
