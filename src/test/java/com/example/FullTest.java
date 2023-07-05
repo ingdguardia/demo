@@ -46,6 +46,7 @@ public class FullTest extends Elements {
         System.out.println("LOGIN");
         try {
             driver.get(url);
+            driver.manage().window().maximize();
             Assert.assertEquals(url, driver.getCurrentUrl());
             Thread.sleep(2000);
             sendKeys(driver, txtLoginUser, "staging");
@@ -97,6 +98,7 @@ public class FullTest extends Elements {
             driver.get(testApi);
             Thread.sleep(3000);
             System.out.println("CREAR NOTA OK");
+
         } catch (Exception e) {
             System.out.println("ERROR: " + e);
         }
@@ -130,11 +132,11 @@ public class FullTest extends Elements {
     }
 
     public WebDriver initializeChrome(WebDriver explorer) {
+        String pathToExtension = "/Users/dario.guardia/Library/Application Support/Google/Chrome/Default/Extensions/gbmdgpbipfallnflgajpaliibnhdgobh/0.18.1_0";
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--window-position=1,1");
-        options.addArguments("--window-size=800x600");
+        options.addArguments("–load-extension=" + pathToExtension);
         explorer = new ChromeDriver(options);
         return explorer;
     }
