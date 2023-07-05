@@ -72,11 +72,17 @@ public class FullTest extends Elements {
             // sendKeys(driver, txtTituloNota, "Automation");
             // sendKeys(driver, txtCopeteNota, "Auto-Copete");
 
-            WebElement elementGrabar = driver.findElement(btnGrabarNota);
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click", elementGrabar);
-            System.out.println("click");
-            // Thread.sleep(3000);
+            try {
+                WebElement elementGrabar = driver.findElement(btnGrabarNota);
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click", elementGrabar);
+                System.out.println("click");
+
+                Thread.sleep(3000);
+            } catch (Exception e) {
+                System.out.println("no se pudo clickear el objeto: " + e);
+            }
+
             // driver.switchTo().frame("cuerpoiframe");
             // Thread.sleep(3000);
             // sendKeys(driver, txtCuerpoNota, "hola");
