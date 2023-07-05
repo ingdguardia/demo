@@ -69,6 +69,9 @@ public class Elements {
     }
 
     public void setHeaderNote(String titulo) {
+        System.out.println("Antes: " + tituloNota);
         tituloNota = titulo;
+        System.out.println("Despues: " + tituloNota);
+        By headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
     }
 }
