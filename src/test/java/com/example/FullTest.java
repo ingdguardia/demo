@@ -75,7 +75,7 @@ public class FullTest extends Elements {
                 WebElement elementGrabar = driver.findElement(btnGrabarNota);
                 JavascriptExecutor js = (JavascriptExecutor) driver;
                 js.executeScript("arguments[0].click()", elementGrabar);
-                System.out.println("click");
+                System.out.println("CLICK GUARDAR");
 
                 Thread.sleep(3000);
             } catch (Exception e) {
@@ -90,6 +90,7 @@ public class FullTest extends Elements {
             headerNota = setHeaderNote("Automation");
             System.out.println("HEADER NOTA: " + headerNota.toString());
             visibiltyOf(driver, headerNota);
+
             String testApi = urlTestApi + idApi;
             driver.get(testApi);
             System.out.println(testApi);
@@ -97,6 +98,9 @@ public class FullTest extends Elements {
             visibiltyOf(driver, jsonTituloNota);
             visibiltyOf(driver, jsonCopeteNota);
             visibiltyOf(driver, jsonVolanteNota);
+            jsonIdNota = setIdNote(idApi);
+            visibiltyOf(driver, jsonIdNota);
+
             System.out.println("CREAR NOTA OK");
 
         } catch (Exception e) {

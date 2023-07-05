@@ -10,6 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 public class Elements {
     String tituloNota;
+    String idNota;
     int timeOut = 30;
     // ELEMENTOS CMS
     By txtLoginUser = By.id("usuario");
@@ -25,6 +26,7 @@ public class Elements {
     By jsonTituloNota = By.xpath("//span[contains(text(), 'Automation')]");
     By jsonCopeteNota = By.xpath("//span[contains(text(), 'Auto-Copete')]");
     By jsonVolanteNota = By.xpath("//span[contains(text(), 'Test Auto')]");
+    By jsonIdNota;
 
     public void click(WebDriver driver, By element) {
         try {
@@ -66,6 +68,11 @@ public class Elements {
     public By setHeaderNote(String titulo) {
         tituloNota = titulo;
         return headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
+    }
+
+    public By setIdNote(String id) {
+        idNota = id;
+        return jsonIdNota = By.xpath("(//span[contains(text(), '" + idNota + "')])[2]");
     }
 
     public String getNoteIdApi(String url) {
