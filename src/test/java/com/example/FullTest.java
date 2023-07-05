@@ -86,7 +86,7 @@ public class FullTest extends Elements {
 
             urlApi = driver.getCurrentUrl();
             System.out.println(urlApi);
-            String mostrar = getNoteIdApi(url);
+            String mostrar = getNoteIdApi(urlApi);
             System.out.println("mostrar: " + mostrar);
 
             driver.close();

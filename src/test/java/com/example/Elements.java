@@ -80,11 +80,11 @@ public class Elements {
         String[] parts = ruta1.split("/");
         System.out.println(parts.length);
         // Obtengo lo que quiero mostrar en el textview
-        String ultima = parts[3];
-        String ultima2 = ruta1.substring(ruta1.lastIndexOf("/") - 1);
+        String ultima = parts[parts.length - 1];
+        String ultima2 = ruta1.substring(ruta1.lastIndexOf("/") + 1);
         System.out.println(ultima2);
 
-        System.out.println("ultima: " + ultima);
+        System.out.println("ultima1: " + ultima);
         return ultima;
     }
 }
