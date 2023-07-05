@@ -30,7 +30,7 @@ public class Elements {
     By txtCopeteNota = By.id("copete");
     By txtCuerpoNota = By.id("cuerpo");
     By btnGrabarNota = By.xpath("//div[@id='save-button']");
-    By headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
+    By headerNota;
 
     public void click(WebDriver driver, By element) {
         try {
@@ -68,10 +68,12 @@ public class Elements {
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
-    public void setHeaderNote(String titulo) {
+    public By setHeaderNote(String titulo) {
         System.out.println("Antes: " + tituloNota);
         tituloNota = titulo;
         System.out.println("Despues: " + tituloNota);
         By headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
+        System.out.println("HEADER NOTA: " + headerNota.toString());
+        return headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
     }
 }
