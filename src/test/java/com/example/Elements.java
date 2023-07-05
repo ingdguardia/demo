@@ -77,8 +77,9 @@ public class Elements {
     public String getNoteIdApi(String url) {
         String ruta1 = url;
         // Separo la ruta en partes delimitadas por el caracter /
-        String ultima = ruta1.substring(ruta1.lastIndexOf("/") + 1);
+        String[] parts = ruta1.split("/");
         // Obtengo lo que quiero mostrar en el textview
+        String ultima = parts[parts.length + 1];
 
         System.out.println("ultima: " + ultima);
         return ultima;
