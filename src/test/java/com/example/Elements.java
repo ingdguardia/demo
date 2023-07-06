@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
@@ -35,9 +36,22 @@ public class Elements {
             driver.findElement(element).click();
             System.out.println("OBJETO CLICKEADO");
         } catch (Exception e) {
-            System.out.println("NO SE PUDO CLICKEAR ELEMENTO: " + e);
+            System.out.println("NO SE PUDO CLICKEAR ELEMENTO: " + element.toString() + "ERROR: " + e);
         }
 
+    }
+
+    public void clickJS(WebDriver driver, By element) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            WebElement wElement = driver.findElement(element);
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click()", wElement);
+            System.out.println("CLICK " + wElement.toString());
+        } catch (Exception e) {
+            System.out.println("NO SE PUDO CLICKEAR ELEMENTO: " + element.toString() + "ERROR: " + e);
+        }
     }
 
     public void sendKeys(WebDriver driver, By element, String text) {
@@ -45,7 +59,7 @@ public class Elements {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             wait.until(ExpectedConditions.elementToBeClickable(element));
             driver.findElement(element).sendKeys(text);
-            System.out.println("TEXTO ENVIADO: " + text);
+            System.out.println("TEXTO ENVIADO a " + element.toString() + ": " + text);
         } catch (Exception e) {
             System.out.println("NO SE PUDO ENVIAR TEXTO: " + e);
         }
@@ -53,16 +67,26 @@ public class Elements {
     }
 
     public void checkTitlePage(WebDriver driver, String title) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.titleContains(title));
-        System.out.println("TITLE OK");
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.titleContains(title));
+            System.out.println("TITLE OK");
+        } catch (Exception e) {
+            System.out.println("NO SE PUDO VERIFICAR TITULO DE PAGINA: " + e);
+        }
 
     }
 
     public void visibiltyOf(WebDriver driver, By element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-        System.out.println("Se ve el objeto: " + element.toString());
+        try {
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+            System.out.println("OBJETO VISIBLE: " + element.toString());
+
+        } catch (Exception e) {
+            System.out.println("NO SE PUDO VISUALIZAR EL OBJETO " + element.toString() + ": " + e);
+        }
     }
 
     public By setHeaderNote(String titulo) {

@@ -6,13 +6,13 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.util.ArrayList;
-import org.openqa.selenium.JavascriptExecutor;
+//import org.openqa.selenium.JavascriptExecutor;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -71,18 +71,21 @@ public class FullTest extends Elements {
             sendKeys(driver, txtTituloNota, "Automation");
             sendKeys(driver, txtCopeteNota, "Auto-Copete");
 
-            try {
-                WebElement elementGrabar = driver.findElement(btnGrabarNota);
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()", elementGrabar);
-                System.out.println("CLICK GUARDAR");
+            clickJS(driver, btnGrabarNota);
 
-                Thread.sleep(3000);
-            } catch (Exception e) {
-                System.out.println("no se pudo clickear el objeto: " + e);
-            }
+            // try {
+            // WebElement elementGrabar = driver.findElement(btnGrabarNota);
+            // JavascriptExecutor js = (JavascriptExecutor) driver;
+            // js.executeScript("arguments[0].click()", elementGrabar);
+            // System.out.println("CLICK GUARDAR");
+
+            // Thread.sleep(3000);
+            // } catch (Exception e) {
+            // System.out.println("no se pudo clickear el objeto: " + e);
+            // }
 
             // urlApi = driver.getCurrentUrl();
+            Thread.sleep(2000);
             String idApi = getNoteIdApi(driver.getCurrentUrl());
 
             driver.close();
@@ -106,20 +109,12 @@ public class FullTest extends Elements {
         } catch (Exception e) {
             System.out.println("ERROR: " + e);
         }
-        driver.quit();
     }
 
     // @Test
-    public void testApp3(String url) throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--window-size=800x600");
-        WebDriver driver = new ChromeDriver(options);
+    public void createTag() throws InterruptedException {
         driver.get(url);
-        System.out.println("TEST 3");
-        Thread.sleep(10000);
-        driver.quit();
+
     }
 
     @AfterTest
