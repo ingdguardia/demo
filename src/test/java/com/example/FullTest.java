@@ -40,7 +40,7 @@ public class FullTest extends Elements {
 
     @Test
     public void login() throws InterruptedException {
-        System.out.println("#######TEST LOGIN#######");
+        System.out.println("##############TEST LOGIN##############");
         try {
             driver.get(url);
             driver.manage().window().maximize();
@@ -50,18 +50,18 @@ public class FullTest extends Elements {
             sendKeys(driver, inputLoginPass, "P4ssSt4g1ng");
             click(driver, btnLogin);
             Assert.assertEquals(url + "administrator/notas", driver.getCurrentUrl());
-            System.out.println("TEST LOGIN OK");
+            System.out.println("##############TEST LOGIN OK##############");
             Thread.sleep(2000);
             // driver2.quit();
         } catch (Exception e) {
-            System.out.println("#######TEST LOGIN ERROR: " + e);
+            System.out.println("##############TEST LOGIN ERROR: " + e);
         }
 
     }
 
     @Test
     public void createNote() throws InterruptedException {
-        System.out.println("#######TEST CREAR NOTA#######");
+        System.out.println("##############TEST CREAR NOTA##############");
         try {
             click(driver, btnNuevo);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -94,23 +94,23 @@ public class FullTest extends Elements {
             jsonIdNota = setIdNote(idApi);
             visibiltyOf(driver, jsonIdNota);
 
-            System.out.println("#######TEST CREAR NOTA OK#######");
+            System.out.println("##############TEST CREAR NOTA OK##############");
 
         } catch (Exception e) {
-            System.out.println("#######TEST CREAR NOTA ERROR: " + e);
+            System.out.println("##############TEST CREAR NOTA ERROR: " + e);
         }
     }
 
     @Test
     public void createTag() throws InterruptedException {
         try {
-            System.out.println("#######TEST CREAR AGRUPADOR#######");
+            System.out.println("##############TEST CREAR AGRUPADOR##############");
             driver.navigate().back();
             click(driver, btnAgrupadores);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(1));
-            click(driver, btnNuevoAgrupador);
             driver.switchTo().window(tabs.get(2));
+            click(driver, btnNuevoAgrupador);
+            driver.switchTo().window(tabs.get(3));
             sendKeys(driver, inputNombreAgrupador, "prueba auto");
             click(driver, dropdownTipoAgrupador);
             click(driver, optionTipoAgrupadorTema);
@@ -120,9 +120,9 @@ public class FullTest extends Elements {
             driver.findElement(inputFiltrarAgrupador).sendKeys(Keys.ENTER);
             setHeaderNote("prueba auto");
             visibiltyOf(driver, headerNota);
-            System.out.println("#######TEST AGRUPADOR OK#######");
+            System.out.println("##############TEST AGRUPADOR OK##############");
         } catch (Exception e) {
-            System.out.println("#######TEST CREAR AGRUPADOR ERROR: " + e);
+            System.out.println("##############TEST CREAR AGRUPADOR ERROR: " + e);
         }
     }
 
