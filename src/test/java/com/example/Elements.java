@@ -14,20 +14,26 @@ public class Elements {
     String idNota;
     int timeOut = 30;
     // ELEMENTOS CMS
-    By txtLoginUser = By.id("usuario");
-    By txtLoginPass = By.id("password");
+    By inputLoginUser = By.id("usuario");
+    By inputLoginPass = By.id("password");
     By btnLogin = By.xpath("//a[text()='Ingresar']");
     By btnNuevo = By.id("nuevo");
-    By txtVolantaNota = By.id("volanta");
-    By txtTituloNota = By.id("titulo");
-    By txtCopeteNota = By.id("copete");
-    By txtCuerpoNota = By.id("cuerpo");
+    By inputVolantaNota = By.id("volanta");
+    By inputTituloNota = By.id("titulo");
+    By inputCopeteNota = By.id("copete");
+    By inputCuerpoNota = By.id("cuerpo");
     By btnGrabarNota = By.xpath("//div[@id='save-button']");
     By headerNota;
     By jsonTituloNota = By.xpath("//span[contains(text(), 'Automation')]");
     By jsonCopeteNota = By.xpath("//span[contains(text(), 'Auto-Copete')]");
     By jsonVolanteNota = By.xpath("//span[contains(text(), 'Test Auto')]");
     By jsonIdNota;
+    By btnAgrupadores = By.xpath("//span[text()='Agrupadores']");
+    By btnNuevoAgrupador = By.xpath("//a[@id='nuevo']");
+    By inputNombreAgrupador = By.xpath("//input[@id='nombre']");
+    By dropdownTipoAgrupador = By.xpath("//div[@id='content_idAgrupadorTipo']//div//input[@type='text']");
+    By optionTipoAgrupadorTema = By.xpath("(//li//span[text()='Tema'])[1]");
+    By inputFiltrarAgrupador = By.xpath("//input[@id='text']");
 
     public void click(WebDriver driver, By element) {
         try {

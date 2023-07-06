@@ -10,6 +10,7 @@
         <methods>
           <include name="login" />
           <include name="createNote" />
+          <include name="createTag" />
         </methods>
       </class>
     </classes>

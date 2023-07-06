@@ -5,6 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,50 +40,39 @@ public class FullTest extends Elements {
 
     @Test
     public void login() throws InterruptedException {
-        System.out.println("LOGIN");
+        System.out.println("#######TEST LOGIN#######");
         try {
             driver.get(url);
             driver.manage().window().maximize();
             Assert.assertEquals(url, driver.getCurrentUrl());
             Thread.sleep(2000);
-            sendKeys(driver, txtLoginUser, "staging");
-            sendKeys(driver, txtLoginPass, "P4ssSt4g1ng");
+            sendKeys(driver, inputLoginUser, "staging");
+            sendKeys(driver, inputLoginPass, "P4ssSt4g1ng");
             click(driver, btnLogin);
             Assert.assertEquals(url + "administrator/notas", driver.getCurrentUrl());
-            System.out.println("LOGIN OK");
+            System.out.println("TEST LOGIN OK");
             Thread.sleep(2000);
             // driver2.quit();
         } catch (Exception e) {
-            System.out.println("ERROR: " + e);
+            System.out.println("#######TEST LOGIN ERROR: " + e);
         }
 
     }
 
     @Test
     public void createNote() throws InterruptedException {
-        System.out.println("Crear Nota");
+        System.out.println("#######TEST CREAR NOTA#######");
         try {
             click(driver, btnNuevo);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
             checkTitlePage(driver, "Sin Titulo");
             Thread.sleep(2000);
-            sendKeys(driver, txtVolantaNota, "Test Auto");
-            sendKeys(driver, txtTituloNota, "Automation");
-            sendKeys(driver, txtCopeteNota, "Auto-Copete");
+            sendKeys(driver, inputVolantaNota, "Test Auto");
+            sendKeys(driver, inputTituloNota, "Automation");
+            sendKeys(driver, inputCopeteNota, "Auto-Copete");
 
             clickJS(driver, btnGrabarNota);
-
-            // try {
-            // WebElement elementGrabar = driver.findElement(btnGrabarNota);
-            // JavascriptExecutor js = (JavascriptExecutor) driver;
-            // js.executeScript("arguments[0].click()", elementGrabar);
-            // System.out.println("CLICK GUARDAR");
-
-            // Thread.sleep(3000);
-            // } catch (Exception e) {
-            // System.out.println("no se pudo clickear el objeto: " + e);
-            // }
 
             // urlApi = driver.getCurrentUrl();
             Thread.sleep(2000);
@@ -104,17 +94,36 @@ public class FullTest extends Elements {
             jsonIdNota = setIdNote(idApi);
             visibiltyOf(driver, jsonIdNota);
 
-            System.out.println("CREAR NOTA OK");
+            System.out.println("#######TEST CREAR NOTA OK#######");
 
         } catch (Exception e) {
-            System.out.println("ERROR: " + e);
+            System.out.println("#######TEST CREAR NOTA ERROR: " + e);
         }
     }
 
-    // @Test
+    @Test
     public void createTag() throws InterruptedException {
-        driver.get(url);
-
+        try {
+            System.out.println("#######TEST CREAR AGRUPADOR#######");
+            driver.get(url);
+            click(driver, btnAgrupadores);
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(1));
+            click(driver, btnNuevoAgrupador);
+            driver.switchTo().window(tabs.get(2));
+            sendKeys(driver, inputNombreAgrupador, "prueba auto");
+            click(driver, dropdownTipoAgrupador);
+            click(driver, optionTipoAgrupadorTema);
+            clickJS(driver, btnGrabarNota);
+            driver.close();
+            sendKeys(driver, inputFiltrarAgrupador, "prueba auto");
+            driver.findElement(inputFiltrarAgrupador).sendKeys(Keys.ENTER);
+            setHeaderNote("prueba auto");
+            visibiltyOf(driver, headerNota);
+            System.out.println("#######TEST AGRUPADOR OK#######");
+        } catch (Exception e) {
+            System.out.println("#######TEST CREAR AGRUPADOR ERROR: " + e);
+        }
     }
 
     @AfterTest
