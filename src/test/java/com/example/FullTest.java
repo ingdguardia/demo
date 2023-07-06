@@ -109,6 +109,7 @@ public class FullTest extends Elements {
             click(driver, btnAgrupadores);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             System.out.println(tabs.size());
+            Thread.sleep(3000);
             driver.switchTo().window(tabs.get(1));
             click(driver, btnNuevoAgrupador);
             System.out.println(tabs.size());
