@@ -105,7 +105,7 @@ public class FullTest extends Elements {
     public void createTag() throws InterruptedException {
         try {
             System.out.println("#######TEST CREAR AGRUPADOR#######");
-            driver.get(url);
+            driver.navigate().back();
             click(driver, btnAgrupadores);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
