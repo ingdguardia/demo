@@ -88,6 +88,7 @@ public class FullTest extends Elements {
         try {
             System.out.println("##############CREAR AGRUPADOR##############");
             click(driver, btnAgrupadores);
+            Thread.sleep(2000);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
             clickJS(driver, btnNuevo);
@@ -247,7 +248,7 @@ public class FullTest extends Elements {
     public void createCategory(String categoryName) {
         try {
             System.out.println("##############CREAR CATEGORIA##############");
-            click(driver, btnAgrupadores);
+            click(driver, btnCategorias);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
             click(driver, btnNuevo);
