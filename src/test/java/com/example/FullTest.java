@@ -207,6 +207,7 @@ public class FullTest extends Elements {
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, lblNotFound);
             driver.close();
+            driver.switchTo().window(tabs.get(0));
             System.out.println("##############TAG BORRADO##############");
         } catch (Exception e) {
             System.out.println("##############NO SE PUDO BORRAR EL TAG " + tagName + " ERROR: " + e);
