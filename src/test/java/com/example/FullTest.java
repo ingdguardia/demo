@@ -92,7 +92,7 @@ public class FullTest extends Elements {
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
             sendKeys(driver, inputNombreAgrupador, tagName);
-            click(driver, dropdownTipoAgrupador);
+            clickJS(driver, dropdownTipoAgrupador);
             click(driver, optionTipoAgrupadorTema);
             clickJS(driver, btnGrabarNota);
             driver.close();
