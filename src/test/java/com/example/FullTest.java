@@ -177,6 +177,11 @@ public class FullTest extends Elements {
             jsonIdNota = setIdNote(idApi);
             visibiltyOf(driver, jsonIdNota);
             driver.get(url);
+            login();
+            tabs = new ArrayList<String>(driver.getWindowHandles());
+            for (int i = 1; i <= tabs.size(); i++) {
+                driver.close();
+            }
             System.out.println("##############CREAR NOTA OK##############");
 
         } catch (Exception e) {
@@ -206,7 +211,7 @@ public class FullTest extends Elements {
 
         System.out.println("##############BORRANDO TAG##############");
         try {
-
+            driver.get(url);
             System.out.println(driver.getCurrentUrl());
             if (driver.getCurrentUrl().equals(url + "administrator/tagsContenido")
                     || driver.getCurrentUrl().equals(url + "administrator/agrupadoresContenido")) {
