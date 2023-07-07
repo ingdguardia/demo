@@ -119,7 +119,7 @@ public class FullTest extends Elements {
 
             System.out.println(tabs.size());
 
-            driver.switchTo().window(tabs.get(1));
+            driver.switchTo().window(tabs.get(2));
             sendKeys(driver, inputNombreAgrupador, "prueba auto");
             click(driver, dropdownTipoAgrupador);
             click(driver, optionTipoAgrupadorTema);
