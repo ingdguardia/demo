@@ -232,10 +232,10 @@ public class FullTest extends Elements {
             Thread.sleep(5000);
             clickJS(driver, btnInfo);
             clickJS(driver, btnEliminar);
-            clickJS(driver, btnSi);
+            clickJS(driver, btnSi2);
             driver.switchTo().window(tabs.get(0));
-            sendKeys(driver, inputFiltrar, tituloNota);
-            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            // sendKeys(driver, inputFiltrar, tituloNota);
+            // driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, lblNotFound);
             System.out.println("##############TAG BORRADO##############");
         } catch (Exception e) {

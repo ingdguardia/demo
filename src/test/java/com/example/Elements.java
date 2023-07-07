@@ -36,6 +36,7 @@ public class Elements {
     By btnInfo = By.xpath("//div//span[@class='icon info-publish']");
     By btnEliminar = By.xpath("//a[text()='Eliminar']");
     By btnSi = By.xpath("//a[text()='Sí']");
+    By btnSi2 = By.xpath("//a[text()='Si']");
     By lblNotFound = By.xpath("//p[text()='No se han encontrado resultados']");
     By alertGuardado = By.xpath("//*[@id='toast-container']/div[text()='El contenido ha sido guardado.']");
 
