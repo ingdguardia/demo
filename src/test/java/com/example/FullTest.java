@@ -89,9 +89,8 @@ public class FullTest extends Elements {
             System.out.println("##############CREAR AGRUPADOR##############");
             click(driver, btnAgrupadores);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            System.out.println(tabs.size());
             driver.switchTo().window(tabs.get(1));
-            click(driver, btnNuevo);
+            clickJS(driver, btnNuevo);
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
             sendKeys(driver, inputNombreObjeto, tagName);
@@ -250,7 +249,6 @@ public class FullTest extends Elements {
             System.out.println("##############CREAR CATEGORIA##############");
             click(driver, btnAgrupadores);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-            System.out.println(tabs.size());
             driver.switchTo().window(tabs.get(1));
             click(driver, btnNuevo);
             tabs = new ArrayList<String>(driver.getWindowHandles());

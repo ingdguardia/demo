@@ -72,6 +72,7 @@ public class Elements {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             wait.until(ExpectedConditions.elementToBeClickable(element));
+            driver.findElement(element).clear();
             driver.findElement(element).sendKeys(text);
             System.out.println("TEXTO ENVIADO a " + element.toString() + ": " + text);
         } catch (Exception e) {
