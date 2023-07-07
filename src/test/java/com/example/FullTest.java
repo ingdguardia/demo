@@ -118,7 +118,9 @@ public class FullTest extends Elements {
             driver.switchTo().window(tabs.get(1));
             checkTitlePage(driver, "Sin Titulo");
             Thread.sleep(5000);
+            driver.switchTo().frame("cuerpoiframe");
             sendKeys(driver, inputCuerpoNota, "TEST CUERPO");
+            driver.switchTo().frame("editorIframe");
             sendKeys(driver, inputVolantaNota, volanta);
             sendKeys(driver, inputTituloNota, titulo);
             sendKeys(driver, inputCopeteNota, copete);
