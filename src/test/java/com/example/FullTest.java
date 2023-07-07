@@ -105,9 +105,8 @@ public class FullTest extends Elements {
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
             sendKeys(driver, inputNombreObjeto, tagName);
-            dropdownTipoAgrupador = By
-                    .xpath("//div[@id='content_idAgrupadorTipo']//div//input[@type='" + tipoTag + "']");
             clickJS(driver, dropdownTipoAgrupador);
+            optionTipoAgrupadorTema = By.xpath("(//li//span[text()='" + tipoTag + "'])[1]");
             click(driver, optionTipoAgrupadorTema);
             clickJS(driver, btnGrabar);
             Thread.sleep(3000);
