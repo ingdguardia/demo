@@ -56,8 +56,10 @@ public class FullTest extends Elements {
     @Test
     public void test2() throws InterruptedException {
         System.out.println("##############TEST CREAR TAG##############");
-        createTag("prueba auto");
-        deleteTag("prueba auto");
+        createTag("Tag test");
+        deleteTag("Tag test");
+        createCategory("Categoria test");
+        deleteCategory("Categoria test");
     }
 
     @AfterTest
@@ -92,7 +94,7 @@ public class FullTest extends Elements {
             click(driver, btnNuevo);
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
-            sendKeys(driver, inputNombreAgrupador, tagName);
+            sendKeys(driver, inputNombreObjeto, tagName);
             clickJS(driver, dropdownTipoAgrupador);
             click(driver, optionTipoAgrupadorTema);
             clickJS(driver, btnGrabar);
@@ -237,9 +239,71 @@ public class FullTest extends Elements {
             // sendKeys(driver, inputFiltrar, tituloNota);
             // driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, lblNotFound);
-            System.out.println("##############TAG BORRADO##############");
+            System.out.println("##############NOTA BORRADA##############");
         } catch (Exception e) {
             System.out.println("##############NO SE PUDO BORRAR LA NOTA " + tituloNota + " ERROR: " + e);
+        }
+    }
+
+    public void createCategory(String categoryName) {
+        try {
+            System.out.println("##############CREAR CATEGORIA##############");
+            click(driver, btnAgrupadores);
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            System.out.println(tabs.size());
+            driver.switchTo().window(tabs.get(1));
+            click(driver, btnNuevo);
+            tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(2));
+            sendKeys(driver, inputNombreObjeto, categoryName);
+            clickJS(driver, dropdownPortalCategoria);
+            click(driver, optionPortalCategoria);
+            clickJS(driver, btnGrabar);
+            Thread.sleep(3000);
+            visibiltyOf(driver, alertGuardado);
+            driver.close();
+            driver.switchTo().window(tabs.get(1));
+            sendKeys(driver, inputFiltrar, categoryName);
+            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            setHeaderNote(categoryName);
+            visibiltyOf(driver, headerObjeto);
+            System.out.println("##############CREAR CATEGORIA OK##############");
+        } catch (Exception e) {
+            System.out.println("##############CREAR CATEGORIA ERROR: " + e);
+        }
+    }
+
+    public void deleteCategory(String categoryName) throws InterruptedException {
+
+        System.out.println("##############BORRANDO TAG##############");
+        try {
+
+            System.out.println(driver.getCurrentUrl());
+            if (driver.getCurrentUrl().equals(url + "administrator/categorias")) {
+                System.out.println("##############SECCION CATEGORIA OK##############");
+                sendKeys(driver, inputFiltrar, categoryName);
+                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            } else {
+                System.out.println("##############CLICK SECCION CATEGORIA##############");
+                click(driver, btnCategorias);
+                sendKeys(driver, inputFiltrar, categoryName);
+                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            }
+            click(driver, headerObjeto);
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(2));
+            Thread.sleep(5000);
+            clickJS(driver, btnInfo);
+            clickJS(driver, btnEliminar);
+            clickJS(driver, btnSi);
+            driver.switchTo().window(tabs.get(1));
+            sendKeys(driver, inputFiltrar, categoryName);
+            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            visibiltyOf(driver, lblNotFound);
+            System.out.println("##############TAG BORRADO##############");
+        } catch (Exception e) {
+            System.out.println("##############NO SE PUDO BORRAR EL TAG " + categoryName + " ERROR: " + e);
         }
     }
 }

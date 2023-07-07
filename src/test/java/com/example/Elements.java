@@ -29,9 +29,11 @@ public class Elements {
     By jsonVolantaNota = By.xpath("//span[contains(text(), 'Test Auto')]");
     By jsonIdNota;
     By btnAgrupadores = By.xpath("//span[text()='Agrupadores']");
-    By inputNombreAgrupador = By.xpath("//input[@id='nombre']");
+    By inputNombreObjeto = By.xpath("//input[@id='nombre']");
     By dropdownTipoAgrupador = By.xpath("//div[@id='content_idAgrupadorTipo']//div//input[@type='text']");
+    By dropdownPortalCategoria = By.xpath("//div[@id='content_idCMSPortal']//div//input[@type='text']");
     By optionTipoAgrupadorTema = By.xpath("(//li//span[text()='Tema'])[1]");
+    By optionPortalCategoria = By.xpath("(//li//span[text()='Todos'])[1]");
     By inputFiltrar = By.xpath("//input[@id='text']");
     By btnInfo = By.xpath("//div//span[@class='icon info-publish']");
     By btnEliminar = By.xpath("//a[text()='Eliminar']");
@@ -39,6 +41,7 @@ public class Elements {
     By btnSi2 = By.xpath("//a[text()='Si']");
     By lblNotFound = By.xpath("//p[text()='No se han encontrado resultados']");
     By alertGuardado = By.xpath("//*[@id='toast-container']/div[text()='El contenido ha sido guardado.']");
+    By btnCategorias = By.xpath("//span[text()='Agrupadores']");
 
     public void click(WebDriver driver, By element) {
         try {
