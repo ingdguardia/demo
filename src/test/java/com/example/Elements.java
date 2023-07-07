@@ -22,18 +22,17 @@ public class Elements {
     By inputTituloNota = By.id("titulo");
     By inputCopeteNota = By.id("copete");
     By inputCuerpoNota = By.xpath("//*[@id='mce_0']/p");
-    By btnGrabarNota = By.xpath("//div[@id='save-button']");
-    By headerNota;
+    By btnGrabar = By.xpath("//div[@id='save-button']");
+    By headerObjeto;
     By jsonTituloNota = By.xpath("//span[contains(text(), 'Automation')]");
     By jsonCopeteNota = By.xpath("//span[contains(text(), 'Auto-Copete')]");
-    By jsonVolanteNota = By.xpath("//span[contains(text(), 'Test Auto')]");
+    By jsonVolantaNota = By.xpath("//span[contains(text(), 'Test Auto')]");
     By jsonIdNota;
     By btnAgrupadores = By.xpath("//span[text()='Agrupadores']");
-    By btnNuevoAgrupador = By.xpath("//a[@id='nuevo']");
     By inputNombreAgrupador = By.xpath("//input[@id='nombre']");
     By dropdownTipoAgrupador = By.xpath("//div[@id='content_idAgrupadorTipo']//div//input[@type='text']");
     By optionTipoAgrupadorTema = By.xpath("(//li//span[text()='Tema'])[1]");
-    By inputFiltrarAgrupador = By.xpath("//input[@id='text']");
+    By inputFiltrar = By.xpath("//input[@id='text']");
     By btnInfo = By.xpath("//div//span[@class='icon info-publish']");
     By btnEliminar = By.xpath("//a[text()='Eliminar']");
     By btnSi = By.xpath("//a[text()='Sí']");
@@ -102,7 +101,7 @@ public class Elements {
 
     public By setHeaderNote(String titulo) {
         tituloNota = titulo;
-        return headerNota = By.xpath("//h2[text()='" + tituloNota + "']");
+        return headerObjeto = By.xpath("//h2[text()='" + tituloNota + "']");
     }
 
     public By setIdNote(String id) {

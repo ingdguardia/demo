@@ -50,6 +50,7 @@ public class FullTest extends Elements {
     public void test1() throws InterruptedException {
         System.out.println("##############TEST CREAR NOTA##############");
         createNote("Automation", "Test Auto", "Auto-Copete");
+        deleteNote("Automation");
     }
 
     @Test
@@ -95,15 +96,15 @@ public class FullTest extends Elements {
             sendKeys(driver, inputNombreAgrupador, tagName);
             clickJS(driver, dropdownTipoAgrupador);
             click(driver, optionTipoAgrupadorTema);
-            clickJS(driver, btnGrabarNota);
+            clickJS(driver, btnGrabar);
             Thread.sleep(3000);
             visibiltyOf(driver, alertGuardado);
             driver.close();
             driver.switchTo().window(tabs.get(1));
-            sendKeys(driver, inputFiltrarAgrupador, tagName);
-            driver.findElement(inputFiltrarAgrupador).sendKeys(Keys.ENTER);
+            sendKeys(driver, inputFiltrar, tagName);
+            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             setHeaderNote(tagName);
-            visibiltyOf(driver, headerNota);
+            visibiltyOf(driver, headerObjeto);
             System.out.println("##############CREAR AGRUPADOR OK##############");
         } catch (Exception e) {
             System.out.println("##############CREAR AGRUPADOR ERROR: " + e);
@@ -125,7 +126,7 @@ public class FullTest extends Elements {
             sendKeys(driver, inputTituloNota, titulo);
             sendKeys(driver, inputCopeteNota, copete);
 
-            clickJS(driver, btnGrabarNota);
+            clickJS(driver, btnGrabar);
 
             // urlApi = driver.getCurrentUrl();
             Thread.sleep(2000);
@@ -133,9 +134,9 @@ public class FullTest extends Elements {
 
             driver.close();
             driver.switchTo().window(tabs.get(0));
-            headerNota = setHeaderNote(titulo);
-            System.out.println("HEADER NOTA: " + headerNota.toString());
-            visibiltyOf(driver, headerNota);
+            headerObjeto = setHeaderNote(titulo);
+            System.out.println("HEADER NOTA: " + headerObjeto.toString());
+            visibiltyOf(driver, headerObjeto);
 
             String testApi = urlTestApi + idApi;
             driver.get(testApi);
@@ -143,10 +144,10 @@ public class FullTest extends Elements {
             Thread.sleep(3000);
             jsonTituloNota = By.xpath("//span[contains(text(), '" + titulo + "')]");
             jsonCopeteNota = By.xpath("//span[contains(text(), '" + copete + "')]");
-            jsonVolanteNota = By.xpath("//span[contains(text(), '" + volanta + "')]");
+            jsonVolantaNota = By.xpath("//span[contains(text(), '" + volanta + "')]");
             visibiltyOf(driver, jsonTituloNota);
             visibiltyOf(driver, jsonCopeteNota);
-            visibiltyOf(driver, jsonVolanteNota);
+            visibiltyOf(driver, jsonVolantaNota);
             jsonIdNota = setIdNote(idApi);
             visibiltyOf(driver, jsonIdNota);
 
@@ -176,29 +177,70 @@ public class FullTest extends Elements {
     }
 
     public void deleteTag(String tagName) throws InterruptedException {
+
         System.out.println("##############BORRANDO TAG##############");
-        System.out.println(driver.getCurrentUrl());
-        if (driver.getCurrentUrl().equals(url + "administrator/tagsContenido")
-                || driver.getCurrentUrl().equals(url + "administrator/agrupadoresContenido")) {
-            System.out.println("##############SECCION TAGS OK##############");
-            sendKeys(driver, inputFiltrarAgrupador, tagName);
-            driver.findElement(inputFiltrarAgrupador).sendKeys(Keys.ENTER);
-        } else {
-            System.out.println("##############CLICK SECCION TAGS##############");
-            click(driver, btnAgrupadores);
-            sendKeys(driver, inputFiltrarAgrupador, tagName);
-            driver.findElement(inputFiltrarAgrupador).sendKeys(Keys.ENTER);
+        try {
+
+            System.out.println(driver.getCurrentUrl());
+            if (driver.getCurrentUrl().equals(url + "administrator/tagsContenido")
+                    || driver.getCurrentUrl().equals(url + "administrator/agrupadoresContenido")) {
+                System.out.println("##############SECCION TAGS OK##############");
+                sendKeys(driver, inputFiltrar, tagName);
+                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            } else {
+                System.out.println("##############CLICK SECCION TAGS##############");
+                click(driver, btnAgrupadores);
+                sendKeys(driver, inputFiltrar, tagName);
+                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            }
+            click(driver, headerObjeto);
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(2));
+            Thread.sleep(5000);
+            clickJS(driver, btnInfo);
+            clickJS(driver, btnEliminar);
+            clickJS(driver, btnSi);
+            driver.switchTo().window(tabs.get(1));
+            sendKeys(driver, inputFiltrar, tagName);
+            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            visibiltyOf(driver, lblNotFound);
+            System.out.println("##############TAG BORRADO##############");
+        } catch (Exception e) {
+            System.out.println("##############NO SE PUDO BORRAR EL TAG " + tagName + " ERROR: " + e);
         }
-        click(driver, headerNota);
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(2));
-        Thread.sleep(5000);
-        clickJS(driver, btnInfo);
-        clickJS(driver, btnEliminar);
-        clickJS(driver, btnSi);
-        driver.switchTo().window(tabs.get(1));
-        visibiltyOf(driver, lblNotFound);
-        System.out.println("##############TAG BORRADO##############");
+    }
+
+    public void deleteNote(String tituloNota) {
+        System.out.println("##############BORRANDO NOTA##############");
+        try {
+
+            System.out.println(driver.getCurrentUrl());
+            if (driver.getCurrentUrl().equals(url + "administrator/notas")) {
+                System.out.println("##############SECCION NOTA OK##############");
+                sendKeys(driver, inputFiltrar, tituloNota);
+                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            } else {
+                System.out.println("##############SECCION NOTA##############");
+                driver.get(url);
+                sendKeys(driver, inputFiltrar, tituloNota);
+                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            }
+            click(driver, headerObjeto);
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(2));
+            Thread.sleep(5000);
+            clickJS(driver, btnInfo);
+            clickJS(driver, btnEliminar);
+            clickJS(driver, btnSi);
+            driver.switchTo().window(tabs.get(1));
+            sendKeys(driver, inputFiltrar, tituloNota);
+            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            visibiltyOf(driver, lblNotFound);
+            System.out.println("##############TAG BORRADO##############");
+        } catch (Exception e) {
+            System.out.println("##############NO SE PUDO BORRAR LA NOTA " + tituloNota + " ERROR: " + e);
+        }
     }
 }
