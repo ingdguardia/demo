@@ -290,6 +290,7 @@ public class FullTest extends Elements {
             setHeaderNote(categoryName);
             visibiltyOf(driver, headerObjeto);
             driver.close();
+            driver.switchTo().window(tabs.get(0));
             System.out.println("##############CREAR CATEGORIA OK##############");
         } catch (Exception e) {
             System.out.println("##############CREAR CATEGORIA ERROR: " + e);
