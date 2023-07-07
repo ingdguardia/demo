@@ -117,7 +117,7 @@ public class FullTest extends Elements {
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
             checkTitlePage(driver, "Sin Titulo");
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             sendKeys(driver, inputVolantaNota, volanta);
             sendKeys(driver, inputTituloNota, titulo);
             sendKeys(driver, inputCopeteNota, copete);
@@ -189,7 +189,7 @@ public class FullTest extends Elements {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(2));
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         clickJS(driver, btnInfo);
         clickJS(driver, btnEliminar);
         clickJS(driver, btnSi);
