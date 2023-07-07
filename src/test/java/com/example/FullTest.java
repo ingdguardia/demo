@@ -172,7 +172,7 @@ public class FullTest extends Elements {
         }
     }
 
-    public void deleteTag(String tagName) {
+    public void deleteTag(String tagName) throws InterruptedException {
         System.out.println("##############BORRANDO TAG##############");
         System.out.println(driver.getCurrentUrl());
         if (driver.getCurrentUrl().equals(url + "administrator/tagsContenido")) {
@@ -189,6 +189,7 @@ public class FullTest extends Elements {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(2));
+        Thread.sleep(2000);
         clickJS(driver, btnInfo);
         clickJS(driver, btnEliminar);
         clickJS(driver, btnSi);
