@@ -228,12 +228,12 @@ public class FullTest extends Elements {
             click(driver, headerObjeto);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(2));
+            driver.switchTo().window(tabs.get(1));
             Thread.sleep(5000);
             clickJS(driver, btnInfo);
             clickJS(driver, btnEliminar);
             clickJS(driver, btnSi);
-            driver.switchTo().window(tabs.get(1));
+            driver.switchTo().window(tabs.get(0));
             sendKeys(driver, inputFiltrar, tituloNota);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, lblNotFound);
