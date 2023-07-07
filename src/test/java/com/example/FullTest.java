@@ -57,6 +57,7 @@ public class FullTest extends Elements {
         driver.navigate().back();
         System.out.println("##############TEST CREAR TAG##############");
         createTag("prueba auto");
+        deleteTag("prueba auto");
     }
 
     @AfterTest
@@ -167,5 +168,24 @@ public class FullTest extends Elements {
         } catch (Exception e) {
             System.out.println("##############TEST LOGIN ERROR: " + e);
         }
+    }
+
+    public void deleteTag(String tagName) {
+        if (driver.getCurrentUrl().equals(url + "administrator/tagsContenido")) {
+            sendKeys(driver, inputFiltrarAgrupador, tagName);
+            driver.findElement(inputFiltrarAgrupador).sendKeys(Keys.ENTER);
+        } else {
+            click(driver, btnAgrupadores);
+        }
+        click(driver, headerNota);
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(2));
+        click(driver, btnInfo);
+        click(driver, btnEliminar);
+        click(driver, btnSi);
+        driver.switchTo().window(tabs.get(1));
+        visibiltyOf(driver, lblNotFound);
+        System.out.println("##############TAG BORRADO##############");
     }
 }

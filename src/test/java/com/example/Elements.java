@@ -34,6 +34,10 @@ public class Elements {
     By dropdownTipoAgrupador = By.xpath("//div[@id='content_idAgrupadorTipo']//div//input[@type='text']");
     By optionTipoAgrupadorTema = By.xpath("(//li//span[text()='Tema'])[1]");
     By inputFiltrarAgrupador = By.xpath("//input[@id='text']");
+    By btnInfo = By.xpath("//*[@id='sticky']/header/nav/div[3]/span[1]");
+    By btnEliminar = By.xpath("//a[text()='Eliminar']");
+    By btnSi = By.xpath("//a[text()='Sí']");
+    By lblNotFound = By.xpath("//p[text()='No se han encontrado resultados']");
 
     public void click(WebDriver driver, By element) {
         try {
