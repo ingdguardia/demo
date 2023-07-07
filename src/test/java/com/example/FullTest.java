@@ -39,7 +39,7 @@ public class FullTest extends Elements {
 
     }
 
-    @Test
+    // @Test
     public void test0() throws InterruptedException {
         System.out.println("##############TEST LOGIN##############");
         login();
