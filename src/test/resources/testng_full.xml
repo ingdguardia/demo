@@ -8,9 +8,9 @@
     <classes>
       <class name="com.example.FullTest">
         <methods>
-          <include name="login" />
-          <include name="createNote" />
-          <include name="createTag" />
+          <include name="test0" />
+          <include name="test1" />
+          <include name="test2" />
         </methods>
       </class>
     </classes>
