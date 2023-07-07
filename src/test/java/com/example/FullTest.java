@@ -68,7 +68,6 @@ public class FullTest extends Elements {
         createTag("Tag test full", "Tema");
         createCategory("Category test full");
         createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full", "Tema", "Category test full");
-        login();
         deleteTag("Tag test full");
         deleteCategory("Category test full");
     }
@@ -178,10 +177,10 @@ public class FullTest extends Elements {
             visibiltyOf(driver, jsonIdNota);
             driver.get(url);
             login();
-            tabs = new ArrayList<String>(driver.getWindowHandles());
-            for (int i = 1; i <= tabs.size(); i++) {
-                driver.close();
-            }
+            // tabs = new ArrayList<String>(driver.getWindowHandles());
+            // for (int i = 1; i <= tabs.size(); i++) {
+            // driver.close();
+            // }
             System.out.println("##############CREAR NOTA OK##############");
 
         } catch (Exception e) {
@@ -211,7 +210,6 @@ public class FullTest extends Elements {
 
         System.out.println("##############BORRANDO TAG##############");
         try {
-            driver.get(url);
             System.out.println(driver.getCurrentUrl());
             if (driver.getCurrentUrl().equals(url + "administrator/tagsContenido")
                     || driver.getCurrentUrl().equals(url + "administrator/agrupadoresContenido")) {
@@ -221,13 +219,17 @@ public class FullTest extends Elements {
             } else {
                 System.out.println("##############CLICK SECCION TAGS##############");
                 click(driver, btnAgrupadores);
+                ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+                tabs = new ArrayList<String>(driver.getWindowHandles());
+                driver.switchTo().window(tabs.get(1));
                 sendKeys(driver, inputFiltrar, tagName);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             }
             click(driver, headerObjeto);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             tabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(2));
+            // driver.switchTo().window(tabs.get(2));
+            driver.switchTo().window("Categorias :: Thinkindot [4.7] :: ");
             Thread.sleep(5000);
             clickJS(driver, btnInfo);
             clickJS(driver, btnEliminar);
