@@ -106,12 +106,17 @@ public class FullTest extends Elements {
         try {
             System.out.println("##############TEST CREAR AGRUPADOR##############");
             driver.navigate().back();
+            System.out.println(driver.getWindowHandle());
             click(driver, btnAgrupadores);
+            System.out.println(driver.getWindowHandle());
+
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             System.out.println(tabs.size());
             Thread.sleep(3000);
             driver.switchTo().window(tabs.get(1));
-            click(driver, btnNuevoAgrupador);
+            click(driver, btnNuevo);
+            System.out.println(driver.getWindowHandle());
+
             System.out.println(tabs.size());
 
             driver.switchTo().window(tabs.get(1));
