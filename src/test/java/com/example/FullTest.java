@@ -189,7 +189,7 @@ public class FullTest extends Elements {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(2));
-        click(driver, btnInfo);
+        clickJS(driver, btnInfo);
         click(driver, btnEliminar);
         click(driver, btnSi);
         driver.switchTo().window(tabs.get(1));
