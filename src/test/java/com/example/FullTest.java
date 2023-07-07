@@ -118,6 +118,7 @@ public class FullTest extends Elements {
             setHeaderNote(tagName);
             visibiltyOf(driver, headerObjeto);
             driver.close();
+            driver.switchTo().window(tabs.get(0));
             System.out.println("##############CREAR AGRUPADOR OK##############");
         } catch (Exception e) {
             System.out.println("##############CREAR AGRUPADOR ERROR: " + e);
