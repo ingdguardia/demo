@@ -190,8 +190,8 @@ public class FullTest extends Elements {
         tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(2));
         clickJS(driver, btnInfo);
-        click(driver, btnEliminar);
-        click(driver, btnSi);
+        clickJS(driver, btnEliminar);
+        clickJS(driver, btnSi);
         driver.switchTo().window(tabs.get(1));
         visibiltyOf(driver, lblNotFound);
         System.out.println("##############TAG BORRADO##############");
