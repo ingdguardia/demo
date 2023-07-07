@@ -62,7 +62,7 @@ public class FullTest extends Elements {
         deleteCategory("Categoria test");
     }
 
-    // @Test
+    @Test
     public void test3() throws InterruptedException {
         login();
         createTag("Tag test full", "Tema");
