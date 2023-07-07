@@ -144,7 +144,7 @@ public class FullTest extends Elements {
             clickJS(driver, optionAgrupadores);
             visibiltyOf(driver, chipCategoriasTag);
             sendKeys(driver, inputCategoriasNota, category);
-            optionAgrupadores = By.xpath("//li//span[text()='" + category + "']");
+            optionCategorias = By.xpath("//span[text()='" + category + "']");
             clickJS(driver, optionCategorias);
             visibiltyOf(driver, chipCategoriasTag);
 
