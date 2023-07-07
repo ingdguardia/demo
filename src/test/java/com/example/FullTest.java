@@ -117,6 +117,7 @@ public class FullTest extends Elements {
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             setHeaderNote(tagName);
             visibiltyOf(driver, headerObjeto);
+            driver.close();
             System.out.println("##############CREAR AGRUPADOR OK##############");
         } catch (Exception e) {
             System.out.println("##############CREAR AGRUPADOR ERROR: " + e);
@@ -287,6 +288,7 @@ public class FullTest extends Elements {
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             setHeaderNote(categoryName);
             visibiltyOf(driver, headerObjeto);
+            driver.close();
             System.out.println("##############CREAR CATEGORIA OK##############");
         } catch (Exception e) {
             System.out.println("##############CREAR CATEGORIA ERROR: " + e);
