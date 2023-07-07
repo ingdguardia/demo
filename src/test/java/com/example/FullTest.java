@@ -129,6 +129,7 @@ public class FullTest extends Elements {
             click(driver, optionTipoAgrupadorTema);
             clickJS(driver, btnGrabarNota);
             driver.close();
+            driver.switchTo().window(tabs.get(1));
             sendKeys(driver, inputFiltrarAgrupador, "prueba auto");
             driver.findElement(inputFiltrarAgrupador).sendKeys(Keys.ENTER);
             setHeaderNote("prueba auto");
