@@ -38,6 +38,7 @@ public class Elements {
     By btnEliminar = By.xpath("//a[text()='Eliminar']");
     By btnSi = By.xpath("//a[text()='Sí']");
     By lblNotFound = By.xpath("//p[text()='No se han encontrado resultados']");
+    By alertGuardado = By.xpath("//*[@id='toast-container']/div[text()='El contenido ha sido guardado.']");
 
     public void click(WebDriver driver, By element) {
         try {

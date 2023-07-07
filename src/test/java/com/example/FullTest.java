@@ -96,6 +96,8 @@ public class FullTest extends Elements {
             clickJS(driver, dropdownTipoAgrupador);
             click(driver, optionTipoAgrupadorTema);
             clickJS(driver, btnGrabarNota);
+            Thread.sleep(3000);
+            visibiltyOf(driver, alertGuardado);
             driver.close();
             driver.switchTo().window(tabs.get(1));
             sendKeys(driver, inputFiltrarAgrupador, tagName);
