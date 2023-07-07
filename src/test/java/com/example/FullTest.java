@@ -115,6 +115,7 @@ public class FullTest extends Elements {
             Thread.sleep(3000);
             driver.switchTo().window(tabs.get(1));
             click(driver, btnNuevo);
+            Thread.sleep(3000);
             System.out.println(driver.getWindowHandle());
 
             System.out.println(tabs.size());
