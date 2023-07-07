@@ -42,6 +42,11 @@ public class Elements {
     By lblNotFound = By.xpath("//p[text()='No se han encontrado resultados']");
     By alertGuardado = By.xpath("//*[@id='toast-container']/div[text()='El contenido ha sido guardado.']");
     By btnCategorias = By.xpath("//span[text()='Categorias']");
+    By inputCategoriasNota = By.xpath("//input[@id='arrCategorias_input']");
+    By optionCategorias = By.xpath("//span[text()='test']");
+    By chipCategoriasTag = By.xpath("//div[@class='chip__body']/span[text()='test']");
+    By inputAgrupadoresNota = By.xpath("//input[@id='arrAgrupadores_input']");
+    By optionAgrupadores = By.xpath("//li//span[text()='Tema » Test']");
 
     public void click(WebDriver driver, By element) {
         try {

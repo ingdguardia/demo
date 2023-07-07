@@ -46,20 +46,30 @@ public class FullTest extends Elements {
 
     }
 
-    @Test
+    // @Test
     public void test1() throws InterruptedException {
         System.out.println("##############TEST CREAR NOTA##############");
-        createNote("Automation", "Test Auto", "Auto-Copete");
+        // createNote("Automation", "Test Auto", "Auto-Copete");
         deleteNote("Automation");
     }
 
-    @Test
+    // @Test
     public void test2() throws InterruptedException {
         System.out.println("##############TEST CREAR TAG##############");
-        createTag("Tag test");
+        // createTag("Tag test");
         deleteTag("Tag test");
         createCategory("Categoria test");
         deleteCategory("Categoria test");
+    }
+
+    // @Test
+    public void test3() throws InterruptedException {
+        login();
+        createTag("Tag test full", "Tema");
+        createCategory("Category test full");
+        createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full", "Tema", "Category test full");
+        deleteTag("Tag test full");
+        deleteCategory("Category test full");
     }
 
     @AfterTest
@@ -84,7 +94,7 @@ public class FullTest extends Elements {
         return explorer;
     }
 
-    public void createTag(String tagName) {
+    public void createTag(String tagName, String tipoTag) {
         try {
             System.out.println("##############CREAR AGRUPADOR##############");
             click(driver, btnAgrupadores);
@@ -95,6 +105,8 @@ public class FullTest extends Elements {
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
             sendKeys(driver, inputNombreObjeto, tagName);
+            dropdownTipoAgrupador = By
+                    .xpath("//div[@id='content_idAgrupadorTipo']//div//input[@type='" + tipoTag + "']");
             clickJS(driver, dropdownTipoAgrupador);
             click(driver, optionTipoAgrupadorTema);
             clickJS(driver, btnGrabar);
@@ -112,7 +124,7 @@ public class FullTest extends Elements {
         }
     }
 
-    public void createNote(String titulo, String volanta, String copete) {
+    public void createNote(String titulo, String volanta, String copete, String tag, String tipoTag, String category) {
         System.out.println("##############CREAR NOTA##############");
         try {
             click(driver, btnNuevo);
@@ -126,6 +138,14 @@ public class FullTest extends Elements {
             sendKeys(driver, inputVolantaNota, volanta);
             sendKeys(driver, inputTituloNota, titulo);
             sendKeys(driver, inputCopeteNota, copete);
+            sendKeys(driver, inputAgrupadoresNota, tag);
+            optionAgrupadores = By.xpath("//li//span[text()='" + tipoTag + " » " + tag + "']");
+            clickJS(driver, optionAgrupadores);
+            visibiltyOf(driver, chipCategoriasTag);
+            sendKeys(driver, inputCategoriasNota, category);
+            optionAgrupadores = By.xpath("//li//span[text()='" + category + "']");
+            clickJS(driver, optionCategorias);
+            visibiltyOf(driver, chipCategoriasTag);
 
             clickJS(driver, btnGrabar);
 
