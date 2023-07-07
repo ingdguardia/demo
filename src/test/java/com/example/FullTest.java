@@ -118,6 +118,7 @@ public class FullTest extends Elements {
             driver.switchTo().window(tabs.get(1));
             checkTitlePage(driver, "Sin Titulo");
             Thread.sleep(5000);
+            sendKeys(driver, inputCuerpoNota, "TEST CUERPO");
             sendKeys(driver, inputVolantaNota, volanta);
             sendKeys(driver, inputTituloNota, titulo);
             sendKeys(driver, inputCopeteNota, copete);
@@ -175,7 +176,8 @@ public class FullTest extends Elements {
     public void deleteTag(String tagName) throws InterruptedException {
         System.out.println("##############BORRANDO TAG##############");
         System.out.println(driver.getCurrentUrl());
-        if (driver.getCurrentUrl().equals(url + "administrator/tagsContenido")) {
+        if (driver.getCurrentUrl().equals(url + "administrator/tagsContenido")
+                || driver.getCurrentUrl().equals(url + "administrator/agrupadoresContenido")) {
             System.out.println("##############SECCION TAGS OK##############");
             sendKeys(driver, inputFiltrarAgrupador, tagName);
             driver.findElement(inputFiltrarAgrupador).sendKeys(Keys.ENTER);

@@ -21,7 +21,7 @@ public class Elements {
     By inputVolantaNota = By.id("volanta");
     By inputTituloNota = By.id("titulo");
     By inputCopeteNota = By.id("copete");
-    By inputCuerpoNota = By.id("cuerpo");
+    By inputCuerpoNota = By.xpath("//*[@id='mce_0']/p");
     By btnGrabarNota = By.xpath("//div[@id='save-button']");
     By headerNota;
     By jsonTituloNota = By.xpath("//span[contains(text(), 'Automation')]");
