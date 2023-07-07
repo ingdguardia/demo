@@ -55,7 +55,6 @@ public class FullTest extends Elements {
 
     @Test
     public void test2() throws InterruptedException {
-        driver.navigate().back();
         System.out.println("##############TEST CREAR TAG##############");
         createTag("prueba auto");
         deleteTag("prueba auto");
@@ -150,7 +149,7 @@ public class FullTest extends Elements {
             visibiltyOf(driver, jsonVolantaNota);
             jsonIdNota = setIdNote(idApi);
             visibiltyOf(driver, jsonIdNota);
-
+            driver.navigate().back();
             System.out.println("##############CREAR NOTA OK##############");
 
         } catch (Exception e) {
