@@ -174,7 +174,7 @@ public class FullTest extends Elements {
 
     public void deleteTag(String tagName) {
         System.out.println("##############BORRANDO TAG##############");
-
+        System.out.println(driver.getCurrentUrl());
         if (driver.getCurrentUrl().equals(url + "administrator/tagsContenido")) {
             System.out.println("##############SECCION TAGS OK##############");
             sendKeys(driver, inputFiltrarAgrupador, tagName);
@@ -182,6 +182,8 @@ public class FullTest extends Elements {
         } else {
             System.out.println("##############CLICK SECCION TAGS##############");
             click(driver, btnAgrupadores);
+            sendKeys(driver, inputFiltrarAgrupador, tagName);
+            driver.findElement(inputFiltrarAgrupador).sendKeys(Keys.ENTER);
         }
         click(driver, headerNota);
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
