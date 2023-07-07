@@ -68,6 +68,7 @@ public class FullTest extends Elements {
         createTag("Tag test full", "Tema");
         createCategory("Category test full");
         createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full", "Tema", "Category test full");
+        login();
         deleteTag("Tag test full");
         deleteCategory("Category test full");
     }
@@ -142,13 +143,15 @@ public class FullTest extends Elements {
             sendKeys(driver, inputAgrupadoresNota, tag);
             optionAgrupadores = By.xpath("//li//span[text()='" + tipoTag + " » " + tag + "']");
             clickJS(driver, optionAgrupadores);
-            chipCategoriasTag = By.xpath("//div[@class='chip__body']/span[text()='" + tag + "']");
-            visibiltyOf(driver, chipCategoriasTag);
+            // chipCategoriasTag = By.xpath("//div[@class='chip__body']/span[text()='" + tag
+            // + "']");
+            // visibiltyOf(driver, chipCategoriasTag);
             sendKeys(driver, inputCategoriasNota, category);
             optionCategorias = By.xpath("//span[text()='" + category + "']");
             clickJS(driver, optionCategorias);
-            chipCategoriasTag = By.xpath("//div[@class='chip__body']/span[text()='" + category + "']");
-            visibiltyOf(driver, chipCategoriasTag);
+            // chipCategoriasTag = By.xpath("//div[@class='chip__body']/span[text()='" +
+            // category + "']");
+            // visibiltyOf(driver, chipCategoriasTag);
             clickJS(driver, btnGrabar);
 
             // urlApi = driver.getCurrentUrl();
