@@ -48,7 +48,7 @@ public class Elements {
     By inputAgrupadoresNota = By.xpath("//input[@id='arrAgrupadores_input']");
     By optionAgrupadores = By.xpath("//li//span[text()='Tema » Test']");
     By btnArchivos = By.xpath("//span[text()='Archivos']");
-    By btnFile = By.xpath("//span[text()='File']");
+    By btnFile = By.xpath("//*[@id='uploadFile']");
     By dropdownTipoAdjunto = By.xpath("//div[@id='content_idAdjuntoTipo']//div//input[@type='text']");
     By optionTipoAdjunto = By.xpath("(//li//span[text()='Imagen'])[1]");
 
