@@ -69,6 +69,7 @@ public class FullTest extends Elements {
         // createCategory("Category test full");
         createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full", "Tema", "Category test full");
         deleteTag("Tag test full");
+        deleteNote("Automation Full");
         // deleteCategory("Category test full");
     }
 
@@ -207,7 +208,7 @@ public class FullTest extends Elements {
     }
 
     public void deleteTag(String tagName) throws InterruptedException {
-
+        System.out.println(tagName);
         System.out.println("##############BORRANDO TAG##############");
         try {
             System.out.println(driver.getCurrentUrl());
@@ -225,6 +226,7 @@ public class FullTest extends Elements {
                 sendKeys(driver, inputFiltrar, tagName);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             }
+            headerObjeto = setHeaderNote(tagName);
             click(driver, headerObjeto);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             tabs = new ArrayList<String>(driver.getWindowHandles());
