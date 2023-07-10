@@ -65,12 +65,17 @@ public class FullTest extends Elements {
     @Test
     public void test3() throws InterruptedException {
         login();
-        createTag("Tag test full", "Tema");
+        // createTag("Tag test full", "Tema");
         // createCategory("Category test full");
-        createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full", "Tema", "Category test full");
-        deleteTag("Tag test full");
-        deleteNote("Automation Full");
+
+        String filePath = "pruebas-evaluacion-1.png";
+        createAttach("Imagen", filePath);
+        // createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full",
+        // "Tema", "Category test full");
+        // deleteNote("Automation Full");
+        // deleteTag("Tag test full");
         // deleteCategory("Category test full");
+        // deleteAttach("IMG","link");
     }
 
     @AfterTest
@@ -343,5 +348,25 @@ public class FullTest extends Elements {
         } catch (Exception e) {
             System.out.println("##############NO SE PUDO BORRAR EL TAG " + categoryName + " ERROR: " + e);
         }
+    }
+
+    public void createAttach(String tipo, String link) {
+        try {
+            System.out.println("##############CREAR ADJUNTO##############");
+            click(driver, btnArchivos);
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(1));
+            click(driver, btnNuevo);
+            tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(2));
+            clickJS(driver, btnFile);
+            sendKeys(driver, btnFile, link);
+            optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
+            clickJS(driver, dropdownTipoAdjunto);
+            clickJS(driver, optionTipoAdjunto);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
     }
 }
