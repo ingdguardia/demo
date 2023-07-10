@@ -360,7 +360,7 @@ public class FullTest extends Elements {
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
             Thread.sleep(3000);
-            driver.switchTo().frame("subEditorIframe");
+            // driver.switchTo().frame("subEditorIframe");
             clickJS(driver, btnFile);
             sendKeys(driver, btnFile, link);
             optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
@@ -368,6 +368,7 @@ public class FullTest extends Elements {
             clickJS(driver, optionTipoAdjunto);
         } catch (Exception e) {
             // TODO: handle exception
+
         }
 
     }
