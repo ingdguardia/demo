@@ -54,7 +54,7 @@ public class Elements {
 
     public void click(WebDriver driver, By element) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.elementToBeClickable(element));
             driver.findElement(element).click();
             System.out.println("OBJETO CLICKEADO");
@@ -66,7 +66,7 @@ public class Elements {
 
     public void clickJS(WebDriver driver, By element) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.elementToBeClickable(element));
             WebElement wElement = driver.findElement(element);
             JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -79,7 +79,7 @@ public class Elements {
 
     public void sendKeys(WebDriver driver, By element, String text) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.elementToBeClickable(element));
             driver.findElement(element).clear();
             driver.findElement(element).sendKeys(text);
@@ -92,7 +92,7 @@ public class Elements {
 
     public void checkTitlePage(WebDriver driver, String title) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.titleContains(title));
             System.out.println("TITLE OK");
         } catch (Exception e) {
@@ -104,7 +104,7 @@ public class Elements {
     public void visibiltyOf(WebDriver driver, By element) {
         try {
 
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOfElementLocated(element));
             System.out.println("OBJETO VISIBLE: " + element.toString());
 
