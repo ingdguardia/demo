@@ -361,7 +361,8 @@ public class FullTest extends Elements {
             driver.switchTo().window(tabs.get(2));
             Thread.sleep(3000);
             // driver.switchTo().frame("subEditorIframe");
-            clickJS(driver, btnFile);
+            driver.findElement(btnArchivos).click();
+            // clickJS(driver, btnFile);
             sendKeys(driver, btnFile, link);
             optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
             clickJS(driver, dropdownTipoAdjunto);
