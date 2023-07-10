@@ -228,8 +228,8 @@ public class FullTest extends Elements {
             click(driver, headerObjeto);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             tabs = new ArrayList<String>(driver.getWindowHandles());
-            // driver.switchTo().window(tabs.get(2));
-            driver.switchTo().window("Categorias :: Thinkindot [4.7] :: ");
+            driver.switchTo().window(tabs.get(2));
+            // driver.switchTo().window("Categorias :: Thinkindot [4.7] :: ");
             Thread.sleep(5000);
             clickJS(driver, btnInfo);
             clickJS(driver, btnEliminar);
