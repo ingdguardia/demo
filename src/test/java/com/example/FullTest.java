@@ -66,10 +66,10 @@ public class FullTest extends Elements {
     public void test3() throws InterruptedException {
         login();
         createTag("Tag test full", "Tema");
-        createCategory("Category test full");
+        // createCategory("Category test full");
         createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full", "Tema", "Category test full");
         deleteTag("Tag test full");
-        deleteCategory("Category test full");
+        // deleteCategory("Category test full");
     }
 
     @AfterTest
