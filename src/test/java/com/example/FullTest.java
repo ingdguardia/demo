@@ -263,6 +263,7 @@ public class FullTest extends Elements {
                 sendKeys(driver, inputFiltrar, tituloNota);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             }
+            headerObjeto = setHeaderNote("Automation Full");
             click(driver, headerObjeto);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             tabs = new ArrayList<String>(driver.getWindowHandles());
