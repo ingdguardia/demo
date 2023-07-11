@@ -55,7 +55,7 @@ public class Elements {
     public void click(WebDriver driver, By element) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(element));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(element));
             driver.findElement(element).click();
             System.out.println("OBJETO " + element.toString() + " CLICKEADO");
         } catch (Exception e) {
@@ -67,7 +67,7 @@ public class Elements {
     public void clickJS(WebDriver driver, By element) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(element));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(element));
             WebElement wElement = driver.findElement(element);
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].click()", wElement);
