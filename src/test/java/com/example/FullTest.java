@@ -360,24 +360,14 @@ public class FullTest extends Elements {
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
             Thread.sleep(3000);
-            // driver.switchTo().frame("subEditorIframe");
-            // driver.findElement(btnFile).click();
-            // clickJS(driver, btnFile);
-            try {
-                // driver.switchTo().frame("subEditorIframe");
-                driver.findElement(btnFile).click();
-                click(driver, btnFile);
-                clickJS(driver, btnFile);
-
-            } catch (Exception e) {
-                System.out.println("ERROR: " + e);
-            }
-            sendKeys(driver, btnFile, link);
+            click(driver, btnFile);
+            Thread.sleep(1000);
+            driver.findElement(btnFile).sendKeys(link);
             optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
             clickJS(driver, dropdownTipoAdjunto);
             clickJS(driver, optionTipoAdjunto);
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println("##############NO SE PUDO CREAR EL ADJUNTO: " + tipo + " ERROR: " + e);
 
         }
 

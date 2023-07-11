@@ -57,7 +57,7 @@ public class Elements {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOfElementLocated(element));
             driver.findElement(element).click();
-            System.out.println("OBJETO " + element.toString() + " CLICKEADO JS");
+            System.out.println("OBJETO " + element.toString() + " CLICKEADO");
         } catch (Exception e) {
             System.out.println("NO SE PUDO CLICKEAR ELEMENTO: " + element.toString() + "ERROR: " + e);
         }
@@ -71,16 +71,16 @@ public class Elements {
             WebElement wElement = driver.findElement(element);
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].click()", wElement);
-            System.out.println("CLICK " + wElement.toString());
+            System.out.println("OBJETO " + element.toString() + " CLICKEADO CON JS");
         } catch (Exception e) {
-            System.out.println("NO SE PUDO CLICKEAR ELEMENTO: " + element.toString() + "ERROR: " + e);
+            System.out.println("NO SE PUDO CLICKEAR ELEMENTO CON JS: " + element.toString() + "ERROR: " + e);
         }
     }
 
     public void sendKeys(WebDriver driver, By element, String text) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(element));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(element));
             driver.findElement(element).clear();
             driver.findElement(element).sendKeys(text);
             System.out.println("TEXTO ENVIADO a " + element.toString() + ": " + text);
