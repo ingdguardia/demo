@@ -364,6 +364,7 @@ public class FullTest extends Elements {
             // driver.findElement(btnFile).click();
             // clickJS(driver, btnFile);
             try {
+                driver.switchTo().frame("subEditorIframe");
                 driver.findElement(btnFile).click();
 
             } catch (Exception e) {
