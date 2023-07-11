@@ -359,9 +359,9 @@ public class FullTest extends Elements {
             click(driver, btnNuevo);
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
+            // Thread.sleep(3000);
+            // click(driver, btnFile);
             Thread.sleep(3000);
-            click(driver, btnFile);
-            Thread.sleep(1000);
             driver.findElement(btnFile).sendKeys(link);
             optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
             clickJS(driver, dropdownTipoAdjunto);
