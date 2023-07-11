@@ -57,7 +57,7 @@ public class Elements {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOfElementLocated(element));
             driver.findElement(element).click();
-            System.out.println("OBJETO " + element.toString() + " CLICKEADO");
+            System.out.println("OBJETO " + element.toString() + " CLICKEADO JS");
         } catch (Exception e) {
             System.out.println("NO SE PUDO CLICKEAR ELEMENTO: " + element.toString() + "ERROR: " + e);
         }
