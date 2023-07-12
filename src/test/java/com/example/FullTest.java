@@ -316,6 +316,7 @@ public class FullTest extends Elements {
         }
     }
 
+    // TODO FIX IFS
     public void deleteCategory(String categoryName) throws InterruptedException {
 
         System.out.println("##############BORRANDO TAG##############");
@@ -418,7 +419,7 @@ public class FullTest extends Elements {
             Thread.sleep(5000);
             clickJS(driver, btnInfo);
             clickJS(driver, btnEliminar);
-            clickJS(driver, btnSi);
+            clickJS(driver, btnSi2);
             driver.switchTo().window(tabs.get(1));
             sendKeys(driver, inputFiltrar, attachName);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
