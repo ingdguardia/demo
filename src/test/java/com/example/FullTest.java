@@ -69,7 +69,7 @@ public class FullTest extends Elements {
         // createCategory("Category test full");
 
         // String filePath = "/Users/dario.guardia/Downloads/pxfuel.jpg";
-        createAttach("Imagen", System.getProperty("user.dir") + "/pruebas-evaluacion-1.png");
+        createAttach("Imagen", System.getProperty("user.dir") + "/pruebas-evaluacion-1.png", "TD Automation Imagen");
         // createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full",
         // "Tema", "Category test full");
         // deleteNote("Automation Full");
@@ -350,7 +350,7 @@ public class FullTest extends Elements {
         }
     }
 
-    public void createAttach(String tipo, String link) {
+    public void createAttach(String tipo, String link, String nombreAdjunto) {
         try {
             System.out.println("##############CREAR ADJUNTO##############");
             click(driver, btnArchivos);
@@ -367,7 +367,7 @@ public class FullTest extends Elements {
             driver.findElement(btnFile).sendKeys(link);
             clickJS(driver, optionImgGrande);
             Thread.sleep(2000);
-            sendKeys(driver, tituloAdjunto, "TD Automation Imagen");
+            sendKeys(driver, tituloAdjunto, nombreAdjunto);
             optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
             clickJS(driver, dropdownTipoAdjunto);
             clickJS(driver, optionTipoAdjunto);
@@ -375,10 +375,10 @@ public class FullTest extends Elements {
             Thread.sleep(3000);
             driver.close();
             driver.switchTo().window(tabs.get(1));
-            // sendKeys(driver, inputFiltrar, categoryName);
-            // driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-            // etHeaderNote(categoryName);
-            // isibiltyOf(driver, headerObjeto);
+            headerImagen = By.xpath("//div[contains(text(), '" + nombreAdjunto + "')]");
+            sendKeys(driver, inputFiltrar, nombreAdjunto);
+            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            visibiltyOf(driver, headerImagen);
             driver.close();
             driver.switchTo().window(tabs.get(0));
             System.out.println("##############CREAR ADJUNTO OK##############");
