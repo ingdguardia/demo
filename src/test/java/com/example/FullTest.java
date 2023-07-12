@@ -69,13 +69,15 @@ public class FullTest extends Elements {
         // createCategory("Category test full");
 
         // String filePath = "/Users/dario.guardia/Downloads/pxfuel.jpg";
-        createAttach("Imagen", System.getProperty("user.dir") + "/pruebas-evaluacion-1.png", "TD Automation Imagen");
+        // createAttach("Imagen", System.getProperty("user.dir") +
+        // "/pruebas-evaluacion-1.png", "TD Automation Imagen");
         // createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full",
+        createCategory("TD AUTOMATION Category");
         // "Tema", "Category test full");
         // deleteNote("Automation Full");
         // deleteTag("Tag test full");
-        // deleteCategory("Category test full");
-        deleteAttach("TD Automation Imagen");
+        deleteCategory("TD AUTOMATION Category");
+        // deleteAttach("TD Automation Imagen");
     }
 
     @AfterTest
@@ -287,6 +289,7 @@ public class FullTest extends Elements {
         }
     }
 
+    // TODO metodo checkUrl
     public void createCategory(String categoryName) {
         try {
             System.out.println("##############CREAR CATEGORIA##############");
@@ -319,21 +322,24 @@ public class FullTest extends Elements {
     // TODO FIX IFS + header
 
     public void deleteCategory(String categoryName) throws InterruptedException {
-
-        System.out.println("##############BORRANDO TAG##############");
         try {
-
+            System.out.println("##############BORRANDO CATEGORIA##############");
             System.out.println(driver.getCurrentUrl());
             if (driver.getCurrentUrl().equals(url + "administrator/categorias")) {
-                System.out.println("##############SECCION CATEGORIA OK##############");
+                System.out.println(url + "administrator/categorias");
+                System.out.println("##############SECCION CATEGORIAS OK##############");
                 sendKeys(driver, inputFiltrar, categoryName);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             } else {
-                System.out.println("##############CLICK SECCION CATEGORIA##############");
+                System.out.println("##############CLICK SECCION CATEGORIAS##############");
                 click(driver, btnCategorias);
+                ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+                tabs = new ArrayList<String>(driver.getWindowHandles());
+                driver.switchTo().window(tabs.get(1));
                 sendKeys(driver, inputFiltrar, categoryName);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             }
+            setHeaderNote(categoryName);
             click(driver, headerObjeto);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -346,9 +352,9 @@ public class FullTest extends Elements {
             sendKeys(driver, inputFiltrar, categoryName);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, lblNotFound);
-            System.out.println("##############TAG BORRADO##############");
+            System.out.println("##############CATEGORIA BORRADA##############");
         } catch (Exception e) {
-            System.out.println("##############NO SE PUDO BORRAR EL TAG " + categoryName + " ERROR: " + e);
+            System.out.println("##############NO SE PUDO BORRAR LA CATEGORIA " + categoryName + " ERROR: " + e);
         }
     }
 
