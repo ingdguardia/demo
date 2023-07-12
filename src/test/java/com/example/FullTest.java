@@ -69,7 +69,7 @@ public class FullTest extends Elements {
         // createCategory("Category test full");
 
         // String filePath = "/Users/dario.guardia/Downloads/pxfuel.jpg";
-        createAttach("Imagen", System.getProperty("user.dir") + "/pruebas-evaluacion-1.png");
+        createAttach("Imagen", "/pruebas-evaluacion-1.png");
         // createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full",
         // "Tema", "Category test full");
         // deleteNote("Automation Full");
