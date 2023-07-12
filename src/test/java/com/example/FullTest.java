@@ -68,7 +68,7 @@ public class FullTest extends Elements {
         // createTag("Tag test full", "Tema");
         // createCategory("Category test full");
 
-        String filePath = "pruebas-evaluacion-1.png";
+        String filePath = "/Users/dario.guardia/Downloads/pxfuel.jpg";
         createAttach("Imagen", filePath);
         // createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full",
         // "Tema", "Category test full");
@@ -363,7 +363,7 @@ public class FullTest extends Elements {
             // click(driver, btnFile);
             Thread.sleep(3000);
             click(driver, btnFile);
-            System.out.println(System.getProperty("user.dir"));
+            System.out.println("HOME: " + System.getProperty("user.home"));
             driver.findElement(btnFile).sendKeys(link);
             optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
             clickJS(driver, dropdownTipoAdjunto);
