@@ -316,7 +316,8 @@ public class FullTest extends Elements {
         }
     }
 
-    // TODO FIX IFS
+    // TODO FIX IFS + header
+
     public void deleteCategory(String categoryName) throws InterruptedException {
 
         System.out.println("##############BORRANDO TAG##############");
