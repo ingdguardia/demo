@@ -51,6 +51,8 @@ public class Elements {
     By btnFile = By.id("uploadFile");
     By dropdownTipoAdjunto = By.xpath("//div[@id='content_idAdjuntoTipo']//div//input[@type='text']");
     By optionTipoAdjunto = By.xpath("(//li//span[text()='Imagen'])[1]");
+    By optionImgGrande = By.xpath("(//a[contains(text(), 'Grande')])[1]");
+    By tituloAdjunto = By.id("descripcion");
 
     public void click(WebDriver driver, By element) {
         try {

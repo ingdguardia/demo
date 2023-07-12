@@ -69,7 +69,7 @@ public class FullTest extends Elements {
         // createCategory("Category test full");
 
         // String filePath = "/Users/dario.guardia/Downloads/pxfuel.jpg";
-        createAttach("Imagen", "/pruebas-evaluacion-1.png");
+        createAttach("Imagen", System.getProperty("user.dir") + "/pruebas-evaluacion-1.png");
         // createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full",
         // "Tema", "Category test full");
         // deleteNote("Automation Full");
@@ -365,9 +365,23 @@ public class FullTest extends Elements {
             // click(driver, btnFile);
             System.out.println("HOME: " + System.getProperty("user.dir"));
             driver.findElement(btnFile).sendKeys(link);
+            clickJS(driver, optionImgGrande);
+            Thread.sleep(2000);
+            sendKeys(driver, tituloAdjunto, "TD Automation Imagen");
             optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
             clickJS(driver, dropdownTipoAdjunto);
             clickJS(driver, optionTipoAdjunto);
+            clickJS(driver, btnGrabar);
+            Thread.sleep(3000);
+            driver.close();
+            driver.switchTo().window(tabs.get(1));
+            // sendKeys(driver, inputFiltrar, categoryName);
+            // driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            // etHeaderNote(categoryName);
+            // isibiltyOf(driver, headerObjeto);
+            driver.close();
+            driver.switchTo().window(tabs.get(0));
+            System.out.println("##############CREAR ADJUNTO OK##############");
         } catch (Exception e) {
             System.out.println("##############NO SE PUDO CREAR EL ADJUNTO: " + tipo + " ERROR: " + e);
 
