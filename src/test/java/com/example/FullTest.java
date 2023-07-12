@@ -363,7 +363,7 @@ public class FullTest extends Elements {
             // click(driver, btnFile);
             Thread.sleep(3000);
             click(driver, btnFile);
-            System.out.println("HOME: " + System.getProperty("user.home"));
+            System.out.println("HOME: " + System.getProperty("user.dir"));
             driver.findElement(btnFile).sendKeys(link);
             optionTipoAdjunto = By.xpath("(//li//span[text()='" + tipo + "'])[1]");
             clickJS(driver, dropdownTipoAdjunto);
