@@ -26,6 +26,7 @@ public class FullTest extends Elements {
     WebDriver driver;
     String texto;
     String urlApi;
+    String idImagen;
 
     @Parameters({ "grupo", "testType" })
     @BeforeTest
@@ -391,14 +392,9 @@ public class FullTest extends Elements {
             sendKeys(driver, inputFiltrar, nombreAdjunto);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, headerImagen);
-
-            WebElement wElement = driver.findElement(headerImagen);
-            WebElement wElement2 = driver.findElement(articleAdjunto);
-            wElement.getAttribute("cms:value");
-            System.out.println("VALOR: " + wElement.getAttribute("cms:value"));
-            wElement2.getAttribute("cms:value");
-            System.out.println("VALOR: " + wElement2.getAttribute("cms:value"));
-
+            WebElement wElement = driver.findElement(articleAdjunto);
+            idImagen = wElement.getAttribute("cms:value");
+            System.out.println("VALOR: " + idImagen);
             driver.close();
             driver.switchTo().window(tabs.get(0));
             System.out.println("##############CREAR ADJUNTO OK##############");
@@ -410,7 +406,7 @@ public class FullTest extends Elements {
     }
 
     public void deleteAttach(String attachName) throws InterruptedException {
-
+        System.out.println(idImagen);
         System.out.println("##############BORRANDO ADJUNTO##############");
         try {
 
