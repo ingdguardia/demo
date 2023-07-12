@@ -54,6 +54,9 @@ public class Elements {
     By optionImgGrande = By.xpath("(//a[contains(text(), 'Grande')])[1]");
     By tituloAdjunto = By.id("descripcion");
     By headerImagen = By.xpath("//div[contains(text(), 'TD Automation Imagen')]");
+    By inputArchivosNota = By.id("FileList_input");
+    By optionArchivosNota = By.xpath("//span[contains(text(), 'Test Auto')]");
+    By articleAdjunto = By.xpath("//article[starts-with(@id,'Result')]");
 
     public void click(WebDriver driver, By element) {
         try {

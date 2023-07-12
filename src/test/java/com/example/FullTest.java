@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -66,16 +67,16 @@ public class FullTest extends Elements {
     public void test3() throws InterruptedException {
         login();
         // createTag("TD AUTOMATION Tag", "Tema");
-        createCategory("TD AUTOMATION Category");
-        // createAttach("Imagen", System.getProperty("user.dir") +
-        // "/pruebas-evaluacion-1.png", "TD AUTOMATION Imagen");
+        // createCategory("TD AUTOMATION Category");
+        createAttach("Imagen", System.getProperty("user.dir") +
+                "/pruebas-evaluacion-1.png", "TD AUTOMATION Imagen");
         // createNote("TD AUTOMATION Nota", "Volanta auto", "Copete auto", "TD
         // AUTOMATION Tag",
         // "Tema", "TD AUTOMATION Category");
         // deleteNote("TD AUTOMATION Nota");
         // deleteTag("TD AUTOMATION Tag");
-        deleteCategory("TD AUTOMATION Category");
-        // deleteAttach("TD AUTOMATION Imagen");
+        // deleteCategory("TD AUTOMATION Category");
+        deleteAttach("TD AUTOMATION Imagen");
     }
 
     @AfterTest
@@ -131,7 +132,8 @@ public class FullTest extends Elements {
         }
     }
 
-    public void createNote(String titulo, String volanta, String copete, String tag, String tipoTag, String category) {
+    public void createNote(String titulo, String volanta, String copete, String tag, String tipoTag, String category,
+            String archivo) {
         System.out.println("##############CREAR NOTA##############");
         try {
             click(driver, btnNuevo);
@@ -146,8 +148,13 @@ public class FullTest extends Elements {
             sendKeys(driver, inputTituloNota, titulo);
             sendKeys(driver, inputCopeteNota, copete);
             sendKeys(driver, inputAgrupadoresNota, tag);
+            sendKeys(driver, inputArchivosNota, archivo);
+            optionArchivosNota = By.xpath("//span[contains(text(), '" + archivo + "')]");
+            clickJS(driver, optionArchivosNota);
+            // TODO OBTENER ARCHIVO ID
             optionAgrupadores = By.xpath("//li//span[text()='" + tipoTag + " » " + tag + "']");
             clickJS(driver, optionAgrupadores);
+
             // chipCategoriasTag = By.xpath("//div[@class='chip__body']/span[text()='" + tag
             // + "']");
             // visibiltyOf(driver, chipCategoriasTag);
@@ -157,6 +164,7 @@ public class FullTest extends Elements {
             // chipCategoriasTag = By.xpath("//div[@class='chip__body']/span[text()='" +
             // category + "']");
             // visibiltyOf(driver, chipCategoriasTag);
+
             clickJS(driver, btnGrabar);
 
             // urlApi = driver.getCurrentUrl();
@@ -383,6 +391,14 @@ public class FullTest extends Elements {
             sendKeys(driver, inputFiltrar, nombreAdjunto);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, headerImagen);
+
+            WebElement wElement = driver.findElement(headerImagen);
+            WebElement wElement2 = driver.findElement(articleAdjunto);
+            wElement.getAttribute("cms:value");
+            System.out.println("VALOR: " + wElement.getAttribute("cms:value"));
+            wElement2.getAttribute("cms:value");
+            System.out.println("VALOR: " + wElement2.getAttribute("cms:value"));
+
             driver.close();
             driver.switchTo().window(tabs.get(0));
             System.out.println("##############CREAR ADJUNTO OK##############");
