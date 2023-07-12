@@ -75,7 +75,7 @@ public class FullTest extends Elements {
         // deleteNote("Automation Full");
         // deleteTag("Tag test full");
         // deleteCategory("Category test full");
-        // deleteAttach("IMG","link");
+        deleteAttach("TD Automation Imagen");
     }
 
     @AfterTest
@@ -387,5 +387,40 @@ public class FullTest extends Elements {
 
         }
 
+    }
+
+    public void deleteAttach(String attachName) throws InterruptedException {
+
+        System.out.println("##############BORRANDO ADJUNTO##############");
+        try {
+
+            System.out.println(driver.getCurrentUrl());
+            if (driver.getCurrentUrl().equals(url + "administrator/categorias")) {
+                System.out.println("##############SECCION ADJUNTO OK##############");
+                sendKeys(driver, inputFiltrar, attachName);
+                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            } else {
+                System.out.println("##############CLICK SECCION ADJUNTO##############");
+                click(driver, btnArchivos);
+                sendKeys(driver, inputFiltrar, attachName);
+                driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            }
+            headerImagen = By.xpath("//div[contains(text(), '" + attachName + "')]");
+            click(driver, headerImagen);
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(2));
+            Thread.sleep(5000);
+            clickJS(driver, btnInfo);
+            clickJS(driver, btnEliminar);
+            clickJS(driver, btnSi);
+            driver.switchTo().window(tabs.get(1));
+            sendKeys(driver, inputFiltrar, attachName);
+            driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+            visibiltyOf(driver, lblNotFound);
+            System.out.println("##############ADJUNTO BORRADO##############");
+        } catch (Exception e) {
+            System.out.println("##############NO SE PUDO BORRAR EL ADJUNTO " + attachName + " ERROR: " + e);
+        }
     }
 }
