@@ -395,13 +395,18 @@ public class FullTest extends Elements {
         try {
 
             System.out.println(driver.getCurrentUrl());
-            if (driver.getCurrentUrl().equals(url + "administrator/categorias")) {
+            if (driver.getCurrentUrl().equals(url + "administrator/adjuntos")) {
+                System.out.println(url + "administrator/adjuntos");
                 System.out.println("##############SECCION ADJUNTO OK##############");
                 sendKeys(driver, inputFiltrar, attachName);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             } else {
-                System.out.println("##############CLICK SECCION ADJUNTO##############");
+                System.out.println("##############CLICK SECCION ARCHIVOS##############");
                 click(driver, btnArchivos);
+                ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+                tabs = new ArrayList<String>(driver.getWindowHandles());
+                System.out.println(tabs.iterator());
+                driver.switchTo().window(tabs.get(1));
                 sendKeys(driver, inputFiltrar, attachName);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             }
