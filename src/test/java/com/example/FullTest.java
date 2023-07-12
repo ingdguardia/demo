@@ -65,19 +65,17 @@ public class FullTest extends Elements {
     @Test
     public void test3() throws InterruptedException {
         login();
-        // createTag("Tag test full", "Tema");
-        // createCategory("Category test full");
-
-        // String filePath = "/Users/dario.guardia/Downloads/pxfuel.jpg";
-        // createAttach("Imagen", System.getProperty("user.dir") +
-        // "/pruebas-evaluacion-1.png", "TD Automation Imagen");
-        // createNote("Automation Full", "Volanta auto", "Copete auto", "Tag test full",
+        // createTag("TD AUTOMATION Tag", "Tema");
         createCategory("TD AUTOMATION Category");
-        // "Tema", "Category test full");
-        // deleteNote("Automation Full");
-        // deleteTag("Tag test full");
+        // createAttach("Imagen", System.getProperty("user.dir") +
+        // "/pruebas-evaluacion-1.png", "TD AUTOMATION Imagen");
+        // createNote("TD AUTOMATION Nota", "Volanta auto", "Copete auto", "TD
+        // AUTOMATION Tag",
+        // "Tema", "TD AUTOMATION Category");
+        // deleteNote("TD AUTOMATION Nota");
+        // deleteTag("TD AUTOMATION Tag");
         deleteCategory("TD AUTOMATION Category");
-        // deleteAttach("TD Automation Imagen");
+        // deleteAttach("TD AUTOMATION Imagen");
     }
 
     @AfterTest
@@ -318,8 +316,6 @@ public class FullTest extends Elements {
             System.out.println("##############CREAR CATEGORIA ERROR: " + e);
         }
     }
-
-    // TODO FIX IFS + header
 
     public void deleteCategory(String categoryName) throws InterruptedException {
         try {
