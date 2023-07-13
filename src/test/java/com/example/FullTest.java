@@ -153,7 +153,8 @@ public class FullTest extends Elements {
             sendKeys(driver, inputCopeteNota, copete);
             sendKeys(driver, inputAgrupadoresNota, tag);
             sendKeys(driver, inputArchivosNota, archivo);
-            checkboxAdjunto = By.xpath("//input[@value='" + idNota + "']");
+            checkboxAdjunto = By
+                    .xpath("//div[@class='check-img']//preceding::label//preceding::input[@value='" + idNota + "']");
             clickJS(driver, checkboxAdjunto);
             Thread.sleep(5000);
             // optionArchivosNota = By.xpath("//span[contains(text(), '" + archivo + "')]");
