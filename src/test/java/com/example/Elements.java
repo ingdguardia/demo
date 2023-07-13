@@ -57,6 +57,7 @@ public class Elements {
     By inputArchivosNota = By.id("FileList_input");
     By optionArchivosNota = By.xpath("//span[contains(text(), 'Test Auto')]");
     By articleAdjunto = By.xpath("//article[starts-with(@id,'Result')]");
+    By checkboxAdjunto = By.xpath("//input[@value='6249463']");
 
     public void click(WebDriver driver, By element) {
         try {

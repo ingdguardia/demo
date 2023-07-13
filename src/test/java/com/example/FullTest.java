@@ -71,9 +71,8 @@ public class FullTest extends Elements {
         // createCategory("TD AUTOMATION Category");
         createAttach("Imagen", System.getProperty("user.dir") +
                 "/pruebas-evaluacion-1.png", "TD AUTOMATION Imagen");
-        // createNote("TD AUTOMATION Nota", "Volanta auto", "Copete auto", "TD
-        // AUTOMATION Tag",
-        // "Tema", "TD AUTOMATION Category");
+        createNote("TD AUTOMATION Nota", "Volanta auto", "Copete auto", "TD AUTOMATION Tag", "Tema",
+                "TD AUTOMATION Category", "TD AUTOMATION Imagen");
         // deleteNote("TD AUTOMATION Nota");
         // deleteTag("TD AUTOMATION Tag");
         // deleteCategory("TD AUTOMATION Category");
@@ -90,6 +89,10 @@ public class FullTest extends Elements {
             grupos = check;
             url = "https://diariolasamericas-diariolasamericas.backend.staging.thinkindot.com/backend/";
             urlTestApi = "https://lasamericas-diariolasamericas-upgrade-81.backend.staging.thinkindot.com/2.0/public/articles/";
+        } else if (check.equals("telebajocero")) {
+            grupos = check;
+            url = "https://telebajocero-pallareslussich-upgrade-81.backend.staging.thinkindot.com/backend/";
+            urlTestApi = "https://telebajocero-pallareslussich-upgrade-81.backend.staging.thinkindot.com/2.0/public/articles/";
         }
     }
 
@@ -150,8 +153,11 @@ public class FullTest extends Elements {
             sendKeys(driver, inputCopeteNota, copete);
             sendKeys(driver, inputAgrupadoresNota, tag);
             sendKeys(driver, inputArchivosNota, archivo);
-            optionArchivosNota = By.xpath("//span[contains(text(), '" + archivo + "')]");
-            clickJS(driver, optionArchivosNota);
+            checkboxAdjunto = By.xpath("//input[@value='" + idNota + "']");
+            clickJS(driver, checkboxAdjunto);
+            Thread.sleep(5000);
+            // optionArchivosNota = By.xpath("//span[contains(text(), '" + archivo + "')]");
+            // clickJS(driver, optionArchivosNota);
             // TODO OBTENER ARCHIVO ID
             optionAgrupadores = By.xpath("//li//span[text()='" + tipoTag + " » " + tag + "']");
             clickJS(driver, optionAgrupadores);
