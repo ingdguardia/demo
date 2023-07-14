@@ -131,7 +131,14 @@ public class FullTest extends Elements {
             sendKeys(driver, inputAgrupadoresNota, tag);
             sendKeys(driver, inputArchivosNota, archivo);
             checkboxAdjunto = By.xpath("//*[@id='FileList_" + idImagen + "_item']/figure/div/label/input");
-            clickJS(driver, checkboxAdjunto);
+            Thread.sleep(2000);
+            try {
+                driver.findElement(checkboxAdjunto).click();
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            // clickJS(driver, checkboxAdjunto);
             Thread.sleep(5000);
             // optionArchivosNota = By.xpath("//span[contains(text(), '" + archivo + "')]");
             // clickJS(driver, optionArchivosNota);
