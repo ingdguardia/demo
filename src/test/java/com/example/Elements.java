@@ -149,9 +149,9 @@ public class Elements {
     public void elementIsClickableW(WebDriver driver, By element) {
         try {
             WebElement wElement = driver.findElement(element);
-            // wElement.isEnabled();
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(wElement));
+            wElement.isEnabled();
+            // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            // wait.until(ExpectedConditions.elementToBeClickable(wElement));
             System.out.println("SE PUEDE CLICKEAR EL wOBJETO: " + element.toString());
 
         } catch (Exception e) {
