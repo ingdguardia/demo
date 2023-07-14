@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -133,8 +134,9 @@ public class FullTest extends Elements {
             checkboxAdjunto = By.xpath("//*[@id='FileList_" + idImagen + "_item']/figure/div/label/input");
             Thread.sleep(2000);
             try {
-                driver.findElement(checkboxAdjunto).click();
-
+                WebElement wElement2 = driver.findElement(checkboxAdjunto);
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()", wElement2);
             } catch (Exception e) {
                 System.out.println(e);
             }
