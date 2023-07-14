@@ -74,6 +74,9 @@ public class Elements {
 
     public void clickJS(WebDriver driver, By element) {
         try {
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.presenceOfElementLocated(element));
             WebElement wElement = driver.findElement(element);
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].click()", wElement);
