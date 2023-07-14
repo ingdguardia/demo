@@ -260,7 +260,7 @@ public class FullTest extends Elements {
                 sendKeys(driver, inputFiltrar, tituloNota);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             }
-            headerObjeto = setHeaderNote("Automation Full");
+            headerObjeto = setHeaderNote(tituloNota);
             click(driver, headerObjeto);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -371,7 +371,7 @@ public class FullTest extends Elements {
             Thread.sleep(3000);
             driver.close();
             driver.switchTo().window(tabs.get(1));
-            headerImagen = By.xpath("//div[contains(text(), '" + nombreAdjunto + "')]");
+            headerImagen = By.xpath("//div[(text='" + nombreAdjunto + "')]");
             sendKeys(driver, inputFiltrar, nombreAdjunto);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, headerImagen);
