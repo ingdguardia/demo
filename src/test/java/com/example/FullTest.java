@@ -41,29 +41,6 @@ public class FullTest extends Elements {
 
     }
 
-    // @Test
-    public void test0() throws InterruptedException {
-        System.out.println("##############TEST LOGIN##############");
-        login();
-
-    }
-
-    // @Test
-    public void test1() throws InterruptedException {
-        System.out.println("##############TEST CREAR NOTA##############");
-        // createNote("Automation", "Test Auto", "Auto-Copete");
-        deleteNote("Automation");
-    }
-
-    // @Test
-    public void test2() throws InterruptedException {
-        System.out.println("##############TEST CREAR TAG##############");
-        // createTag("Tag test");
-        deleteTag("Tag test");
-        createCategory("Categoria test");
-        deleteCategory("Categoria test");
-    }
-
     @Test
     public void test3() throws InterruptedException {
         login();
@@ -153,8 +130,7 @@ public class FullTest extends Elements {
             sendKeys(driver, inputCopeteNota, copete);
             sendKeys(driver, inputAgrupadoresNota, tag);
             sendKeys(driver, inputArchivosNota, archivo);
-            checkboxAdjunto = By
-                    .xpath("//div[@class='check-img']//preceding::label//preceding::input[@value='" + idImagen + "']");
+            checkboxAdjunto = By.xpath("//*[@id='FileList_" + idImagen + "_item']/figure/div");
             clickJS(driver, checkboxAdjunto);
             Thread.sleep(5000);
             // optionArchivosNota = By.xpath("//span[contains(text(), '" + archivo + "')]");
