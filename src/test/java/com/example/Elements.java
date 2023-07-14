@@ -122,6 +122,18 @@ public class Elements {
         }
     }
 
+    public void presenceOf(WebDriver driver, By element) {
+        try {
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.presenceOfElementLocated(element));
+            System.out.println("OBJETO VISIBLE: " + element.toString());
+
+        } catch (Exception e) {
+            System.out.println("NO SE PUDO VISUALIZAR EL OBJETO " + element.toString() + ": " + e);
+        }
+    }
+
     public By setHeaderNote(String titulo) {
         tituloNota = titulo;
         return headerObjeto = By.xpath("//h2[text()='" + tituloNota + "']");
