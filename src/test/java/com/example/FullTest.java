@@ -51,7 +51,7 @@ public class FullTest extends Elements {
                 "/pruebas-evaluacion-1.png", "TD AUTOMATION Imagen");
         createNote("TD AUTOMATION Nota", "Volanta auto", "Copete auto", "TD AUTOMATION Tag", "Tema",
                 "TD AUTOMATION Category", "TD AUTOMATION Imagen");
-        // deleteNote("TD AUTOMATION Nota");
+        deleteNote("TD AUTOMATION Nota");
         // deleteTag("TD AUTOMATION Tag");
         // deleteCategory("TD AUTOMATION Category");
         deleteAttach("TD AUTOMATION Imagen");
@@ -134,16 +134,8 @@ public class FullTest extends Elements {
             checkboxAdjunto = By.xpath("//*[@id='FileList_" + idImagen + "_item']/figure/div/label/input");
             Thread.sleep(2000);
             clickJS(driver, checkboxAdjunto);
-
-            try {
-                WebElement wElement2 = driver.findElement(checkboxAdjunto);
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()", wElement2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
             clickJS(driver, btnRelacionarNota);
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             optionAgrupadores = By.xpath("//li//span[text()='" + tipoTag + " » " + tag + "']");
             clickJS(driver, optionAgrupadores);
 
@@ -418,7 +410,7 @@ public class FullTest extends Elements {
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             }
             headerImagen = By.xpath("//div[text()='" + attachName + "']");
-            click(driver, headerImagen);
+            clickJS(driver, headerImagen);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
