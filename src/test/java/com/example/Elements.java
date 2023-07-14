@@ -74,10 +74,17 @@ public class Elements {
     public void clickJS(WebDriver driver, By element) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-            WebElement wElement = driver.findElement(element);
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click()", wElement);
+            if (wait.until(ExpectedConditions.visibilityOfElementLocated(element)).isEnabled()) {
+                System.out.println("Visibility");
+                WebElement wElement = driver.findElement(element);
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()", wElement);
+            } else if (wait.until(ExpectedConditions.elementToBeClickable(element)).isEnabled()) {
+                System.out.println("Clickable");
+                WebElement wElement = driver.findElement(element);
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()", wElement);
+            }
             System.out.println("OBJETO " + element.toString() + " CLICKEADO CON JS");
         } catch (Exception e) {
             System.out.println("NO SE PUDO CLICKEAR ELEMENTO CON JS: " + element.toString() + "ERROR: " + e);

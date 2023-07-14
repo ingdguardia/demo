@@ -133,13 +133,16 @@ public class FullTest extends Elements {
             sendKeys(driver, inputArchivosNota, archivo);
             checkboxAdjunto = By.xpath("//*[@id='FileList_" + idImagen + "_item']/figure/div/label/input");
             Thread.sleep(2000);
-            try {
-                WebElement wElement2 = driver.findElement(checkboxAdjunto);
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("arguments[0].click()", wElement2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            clickJS(driver, checkboxAdjunto);
+            /*
+             * try {
+             * WebElement wElement2 = driver.findElement(checkboxAdjunto);
+             * JavascriptExecutor js = (JavascriptExecutor) driver;
+             * js.executeScript("arguments[0].click()", wElement2);
+             * } catch (Exception e) {
+             * System.out.println(e);
+             * }
+             */
             // clickJS(driver, checkboxAdjunto);
             Thread.sleep(5000);
             // optionArchivosNota = By.xpath("//span[contains(text(), '" + archivo + "')]");
