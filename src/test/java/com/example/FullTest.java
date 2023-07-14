@@ -374,7 +374,7 @@ public class FullTest extends Elements {
             headerImagen = By.xpath("//div[(text='" + nombreAdjunto + "')]");
             sendKeys(driver, inputFiltrar, nombreAdjunto);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-            presenceOf(driver, headerImagen);
+            elementIsClickableW(driver, headerImagen);
             WebElement wElement = driver.findElement(articleAdjunto);
             idImagen = wElement.getAttribute("cms:value");
             System.out.println("VALOR: " + idImagen);

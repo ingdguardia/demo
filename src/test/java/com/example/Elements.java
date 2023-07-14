@@ -134,6 +134,31 @@ public class Elements {
         }
     }
 
+    public void elementIsClickable(WebDriver driver, By element) {
+        try {
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            System.out.println("SE PUEDE CLICKEAR EL OBJETO: " + element.toString());
+
+        } catch (Exception e) {
+            System.out.println("ERROR, NO SE PUDO CLICKEAR EL OBJETO " + element.toString() + ": " + e);
+        }
+    }
+
+    public void elementIsClickableW(WebDriver driver, By element) {
+        try {
+            WebElement wElement = driver.findElement(element);
+            // wElement.isEnabled();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(wElement));
+            System.out.println("SE PUEDE CLICKEAR EL wOBJETO: " + element.toString());
+
+        } catch (Exception e) {
+            System.out.println("ERROR, NO SE PUDO CLICKEAR EL wOBJETO " + element.toString() + ": " + e);
+        }
+    }
+
     public By setHeaderNote(String titulo) {
         tituloNota = titulo;
         return headerObjeto = By.xpath("//h2[text()='" + tituloNota + "']");
