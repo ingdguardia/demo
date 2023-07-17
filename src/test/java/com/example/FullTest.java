@@ -358,6 +358,7 @@ public class FullTest extends Elements {
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, lblNotFound);
             driver.close();
+            driver.switchTo().window(tabs.get(0));
             System.out.println("##############CATEGORIA BORRADA##############");
         } catch (Exception e) {
             System.out.println("##############NO SE PUDO BORRAR LA CATEGORIA " + categoryName + " ERROR: " + e);
@@ -411,6 +412,7 @@ public class FullTest extends Elements {
             WebElement wElement = driver.findElement(articleAdjunto);
             idImagen = wElement.getAttribute("cms:value");
             System.out.println("VALOR: " + idImagen);
+            driver.close();
             driver.switchTo().window(tabs.get(0));
             System.out.println("##############CREAR ADJUNTO OK##############");
         } catch (Exception e) {
@@ -454,6 +456,8 @@ public class FullTest extends Elements {
             sendKeys(driver, inputFiltrar, attachName);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, lblNotFound);
+            driver.close();
+            driver.switchTo().window(tabs.get(0));
             System.out.println("##############ADJUNTO BORRADO##############");
         } catch (Exception e) {
             System.out.println("##############NO SE PUDO BORRAR EL ADJUNTO " + attachName + " ERROR: " + e);
