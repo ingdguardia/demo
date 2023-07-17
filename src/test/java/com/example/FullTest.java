@@ -383,6 +383,7 @@ public class FullTest extends Elements {
                 driver.switchTo().window(tabs.get(1));
                 sendKeys(driver, inputFiltrar, nombreAdjunto);
             }
+            System.out.println("exit while");
             click(driver, btnNuevo);
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
