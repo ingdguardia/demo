@@ -229,6 +229,8 @@ public class FullTest extends Elements {
                 sendKeys(driver, inputFiltrar, tagName);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             } else {
+                System.out.println(driver.getTitle());
+
                 System.out.println("##############CLICK SECCION TAGS##############");
                 click(driver, btnAgrupadores);
                 ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
