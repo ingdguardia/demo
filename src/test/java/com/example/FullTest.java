@@ -45,15 +45,15 @@ public class FullTest extends Elements {
     @Test
     public void test3() throws InterruptedException {
         login();
-        // createTag("TD AUTOMATION Tag", "Tema");
-        // createCategory("TD AUTOMATION Category");
+        createTag("TD AUTOMATION Tag", "Tema");
+        createCategory("TD AUTOMATION Category");
         createAttach("Imagen", System.getProperty("user.dir") +
                 "/pruebas-evaluacion-1.png", "TD AUTOMATION Imagen");
         createNote("TD AUTOMATION Nota", "Volanta auto", "Copete auto", "TD AUTOMATION Tag", "Tema",
                 "TD AUTOMATION Category", "TD AUTOMATION Imagen");
         deleteNote("TD AUTOMATION Nota");
-        // deleteTag("TD AUTOMATION Tag");
-        // deleteCategory("TD AUTOMATION Category");
+        deleteTag("TD AUTOMATION Tag");
+        deleteCategory("TD AUTOMATION Category");
         deleteAttach("TD AUTOMATION Imagen");
     }
 
@@ -374,7 +374,7 @@ public class FullTest extends Elements {
             headerImagen = By.xpath("//div[(text='" + nombreAdjunto + "')]");
             sendKeys(driver, inputFiltrar, nombreAdjunto);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
-            elementIsClickableW(driver, headerImagen);
+            elementIsClickableW(driver, headerImagen); // TODO FIX
             WebElement wElement = driver.findElement(articleAdjunto);
             idImagen = wElement.getAttribute("cms:value");
             System.out.println("VALOR: " + idImagen);
