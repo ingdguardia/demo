@@ -230,12 +230,14 @@ public class FullTest extends Elements {
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             } else {
                 System.out.println(driver.getTitle());
-
+                System.out.println(driver.getWindowHandles());
                 System.out.println("##############CLICK SECCION TAGS##############");
                 click(driver, btnAgrupadores);
+                System.out.println(driver.getWindowHandles());
                 ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
                 tabs = new ArrayList<String>(driver.getWindowHandles());
                 driver.switchTo().window(tabs.get(1));
+                System.out.println(driver.getWindowHandles());
                 sendKeys(driver, inputFiltrar, tagName);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
                 System.out.println(driver.getTitle());
