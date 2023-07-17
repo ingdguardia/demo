@@ -1,22 +1,29 @@
 package com.example;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestResult;
+import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 //import org.openqa.selenium.JavascriptExecutor;
+import java.util.logging.FileHandler;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -43,7 +50,7 @@ public class FullTest extends Elements {
     }
 
     @Test
-    public void test3() throws InterruptedException {
+    public void test3() throws InterruptedException, IOException {
         login();
         createTag("TD AUTOMATION Tag", "Tema");
         createCategory("TD AUTOMATION Category");
@@ -60,6 +67,13 @@ public class FullTest extends Elements {
     @AfterTest
     public void quit() {
         driver.quit();
+    }
+
+    public void screenshot(String element) throws IOException {
+
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(screenshotFile, new File("./Screenshots/" + element + ".png"));
+
     }
 
     public void getUrl(String check) {
@@ -204,7 +218,7 @@ public class FullTest extends Elements {
         }
     }
 
-    public void deleteTag(String tagName) throws InterruptedException {
+    public void deleteTag(String tagName) throws IOException {
         System.out.println(tagName);
         System.out.println("##############BORRANDO TAG##############");
         try {
@@ -240,8 +254,10 @@ public class FullTest extends Elements {
             driver.close();
             driver.switchTo().window(tabs.get(0));
             System.out.println("##############TAG BORRADO##############");
+            screenshot(tagName);
         } catch (Exception e) {
             System.out.println("##############NO SE PUDO BORRAR EL TAG " + tagName + " ERROR: " + e);
+            screenshot(tagName);
         }
     }
 
