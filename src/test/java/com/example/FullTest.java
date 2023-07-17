@@ -235,6 +235,8 @@ public class FullTest extends Elements {
                 click(driver, btnAgrupadores);
                 System.out.println(driver.getWindowHandles());
                 ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+                System.out.println(driver.getWindowHandles());
+                System.out.println(driver.getTitle());
                 tabs = new ArrayList<String>(driver.getWindowHandles());
                 driver.switchTo().window(tabs.get(1));
                 System.out.println(driver.getWindowHandles());
