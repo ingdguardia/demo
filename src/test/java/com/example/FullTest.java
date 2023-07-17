@@ -313,6 +313,7 @@ public class FullTest extends Elements {
         try {
             System.out.println("##############BORRANDO CATEGORIA##############");
             System.out.println(driver.getCurrentUrl());
+            Thread.sleep(5000);
             if (driver.getCurrentUrl().equals(url + "administrator/categorias")) {
                 System.out.println(url + "administrator/categorias");
                 System.out.println("##############SECCION CATEGORIAS OK##############");
