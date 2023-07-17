@@ -1,14 +1,14 @@
 package com.example;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
+//import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+//import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
@@ -16,14 +16,14 @@ import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.ITestResult;
+//import org.testng.ITestResult;
 import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 //import org.openqa.selenium.JavascriptExecutor;
-import java.util.logging.FileHandler;
+//import java.util.logging.FileHandler;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -233,6 +233,7 @@ public class FullTest extends Elements {
                 System.out.println(driver.getWindowHandles());
                 System.out.println("##############CLICK SECCION TAGS##############");
                 click(driver, btnAgrupadores);
+                Thread.sleep(3000);
                 System.out.println(driver.getWindowHandles());
                 ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
                 System.out.println(driver.getWindowHandles());
