@@ -88,7 +88,7 @@ public class Elements {
 
     public void sendKeys(WebDriver driver, By element, String text) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
             wait.until(ExpectedConditions.visibilityOfElementLocated(element));
             driver.findElement(element).clear();
             driver.findElement(element).sendKeys(text);

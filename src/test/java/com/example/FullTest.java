@@ -236,6 +236,7 @@ public class FullTest extends Elements {
                 driver.switchTo().window(tabs.get(1));
                 sendKeys(driver, inputFiltrar, tagName);
                 driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
+                System.out.println(driver.getTitle());
             }
             headerObjeto = setHeaderNote(tagName);
             click(driver, headerObjeto);
