@@ -370,6 +370,19 @@ public class FullTest extends Elements {
             click(driver, btnArchivos);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
+            sendKeys(driver, inputFiltrar, nombreAdjunto);
+            headerImagen = By.xpath("//div[text()='" + nombreAdjunto + "']");
+            while (headerImagen != null) {
+                clickJS(driver, headerImagen);
+                tabs = new ArrayList<String>(driver.getWindowHandles());
+                driver.switchTo().window(tabs.get(2));
+                Thread.sleep(5000);
+                clickJS(driver, btnInfo);
+                clickJS(driver, btnEliminar);
+                clickJS(driver, btnSi2);
+                driver.switchTo().window(tabs.get(1));
+                sendKeys(driver, inputFiltrar, nombreAdjunto);
+            }
             click(driver, btnNuevo);
             tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(2));
@@ -396,7 +409,6 @@ public class FullTest extends Elements {
             WebElement wElement = driver.findElement(articleAdjunto);
             idImagen = wElement.getAttribute("cms:value");
             System.out.println("VALOR: " + idImagen);
-            driver.close();
             driver.switchTo().window(tabs.get(0));
             System.out.println("##############CREAR ADJUNTO OK##############");
         } catch (Exception e) {
