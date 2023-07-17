@@ -340,6 +340,7 @@ public class FullTest extends Elements {
             sendKeys(driver, inputFiltrar, categoryName);
             driver.findElement(inputFiltrar).sendKeys(Keys.ENTER);
             visibiltyOf(driver, lblNotFound);
+            driver.close();
             System.out.println("##############CATEGORIA BORRADA##############");
         } catch (Exception e) {
             System.out.println("##############NO SE PUDO BORRAR LA CATEGORIA " + categoryName + " ERROR: " + e);
