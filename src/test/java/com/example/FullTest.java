@@ -109,7 +109,6 @@ public class FullTest extends Elements {
             } else if (versionCMS.equals("4.8.1")) {
                 click(driver, btnTags);
             }
-            click(driver, btnAgrupadores);
             Thread.sleep(2000);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
@@ -249,7 +248,11 @@ public class FullTest extends Elements {
                 System.out.println(driver.getTitle());
                 System.out.println(driver.getWindowHandles());
                 System.out.println("##############CLICK SECCION TAGS##############");
-                click(driver, btnAgrupadores);
+                if (versionCMS.equals("4.8")) {
+                    click(driver, btnAgrupadores);
+                } else if (versionCMS.equals("4.8.1")) {
+                    click(driver, btnTags);
+                }
                 Thread.sleep(3000);
                 System.out.println(driver.getWindowHandles());
                 ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
