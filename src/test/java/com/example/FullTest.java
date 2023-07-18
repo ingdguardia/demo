@@ -35,6 +35,7 @@ public class FullTest extends Elements {
     String texto;
     String urlApi;
     String idImagen;
+    String versionCMS;
 
     @Parameters({ "grupo", "testType" })
     @BeforeTest
@@ -81,10 +82,13 @@ public class FullTest extends Elements {
             grupos = check;
             url = "https://diariolasamericas-diariolasamericas.backend.staging.thinkindot.com/backend/";
             urlTestApi = "https://lasamericas-diariolasamericas-upgrade-81.backend.staging.thinkindot.com/2.0/public/articles/";
+            versionCMS = "4.8";
         } else if (check.equals("telebajocero")) {
             grupos = check;
             url = "https://telebajocero-pallareslussich-upgrade-81.backend.staging.thinkindot.com/backend/";
             urlTestApi = "https://telebajocero-pallareslussich-upgrade-81.backend.staging.thinkindot.com/2.0/public/articles/";
+            versionCMS = "4.8.1";
+
         }
     }
 
@@ -142,7 +146,15 @@ public class FullTest extends Elements {
             driver.switchTo().parentFrame();
             sendKeys(driver, inputVolantaNota, volanta);
             sendKeys(driver, inputTituloNota, titulo);
-            sendKeys(driver, inputCopeteNota, copete);
+            if (versionCMS.equals("4.8")) {
+                sendKeys(driver, inputCopeteNota, copete);
+            } else if (versionCMS.equals("4.8.1")) {
+                driver.switchTo().frame("copeteiframe");
+                System.out.println("switch copete iframe");
+                sendKeys(driver, inputCuerpoNota, copete);
+                driver.switchTo().parentFrame();
+                System.out.println("switch parent frame");
+            }
             sendKeys(driver, inputAgrupadoresNota, tag);
             sendKeys(driver, inputArchivosNota, archivo);
             checkboxAdjunto = By.xpath("//*[@id='FileList_" + idImagen + "_item']/figure/div/label/input");
