@@ -29,6 +29,7 @@ public class Elements {
     By jsonVolantaNota = By.xpath("//span[contains(text(), 'Test Auto')]");
     By jsonIdNota;
     By btnAgrupadores = By.xpath("//span[text()='Agrupadores']");
+    By btnTags = By.xpath("//span[text()='Tags']");
     By inputNombreObjeto = By.xpath("//input[@id='nombre']");
     By dropdownTipoAgrupador = By.xpath("//div[@id='content_idAgrupadorTipo']//div//input[@type='text']");
     By dropdownPortalCategoria = By.xpath("//div[@id='content_idCMSPortal']//div//input[@type='text']");

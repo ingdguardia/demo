@@ -104,6 +104,11 @@ public class FullTest extends Elements {
     public void createTag(String tagName, String tipoTag) {
         try {
             System.out.println("##############CREAR AGRUPADOR##############");
+            if (versionCMS.equals("4.8")) {
+                click(driver, btnAgrupadores);
+            } else if (versionCMS.equals("4.8.1")) {
+                click(driver, btnTags);
+            }
             click(driver, btnAgrupadores);
             Thread.sleep(2000);
             ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
